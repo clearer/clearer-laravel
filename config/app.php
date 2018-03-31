@@ -151,6 +151,7 @@ return [
          * Package Service Providers...
          */
         BladeSvg\BladeSvgServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...

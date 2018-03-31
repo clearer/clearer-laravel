@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Voteable;
 
 class Idea extends Model
 {
+    use Voteable;
+
     /**
      * The attributes that are mass assignable.
      *

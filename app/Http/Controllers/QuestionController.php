@@ -21,8 +21,7 @@ class QuestionController extends Controller
     }
     //
     public function show(Question $question) {
-        $currentUser = Auth::user();
-        return view('question.show', compact(['question', 'currentUser']));
+        return view('question.show', compact(['question']));
     }
 
     public function create(Project $project) {

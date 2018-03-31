@@ -55,25 +55,17 @@
                             </div>
                             <a class="card__content p-3" href="/idea/{{ $idea->id }}">{{ $idea->title }}</a>
                             <div class="card__footer px-3 py-1 d-flex">
-                                <form method="POST" action="/vote">
+                                <form method="POST" id="favorite-{{ $idea->id }}" action="{{ $idea->isVoted($idea->id) ? '/vote/' . $idea->isVoted($idea->id)->id : '/vote' }}">
+                                    {{ csrf_field() }}
+                                    @if ( $idea->isVoted($idea->id))
+                                        {{ method_field('DELETE') }}
+                                    @endif
                                     <input type="hidden" name="question_id" value="{{ $question->id }}" />
-                                    <div class="d-flex mr-auto">
+                                    <input type="hidden" name="idea_id" value="{{ $idea->id }}" />
+                                    <a href="javascript:document.forms['favorite-{{ $idea->id }}'].submit()" class="d-flex mr-auto" >
                                         {{ sizeOf($idea->votes) }}
-                                        @if (!$currentUser->votes->isEmpty())
-                                        @foreach($currentUser->votes as $vote)
-                                            @if ($vote->idea_id == $idea->id)
-                                                @svg('heart', ['class' => 'icon active ml-2'])
-                                            @endif
-                                        @endforeach
-                                        @else
-                                            @svg('heart', 'ml-2')                                            
-
-                                        @else 
-                                            @svg('heart', 'ml-2')
-                                               
-                                            
-                                        @endif
-                                    </div>
+                                        @svg('heart', ( $idea->isVoted($idea->id) ? 'ml-2 active' : 'ml-2'))
+                                    </a>
                                 </form>
                                 <div class="d-flex ml-auto">
                                     @svg('pencil')

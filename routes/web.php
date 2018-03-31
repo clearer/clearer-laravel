@@ -80,3 +80,13 @@ Route::get('/{team_slug}/projects', [
     'as' => 'project.index',
     'uses' => 'TeamController@show'
 ]);
+
+Route::post('/vote', [
+    'as' => 'vote.store',
+    'uses' => 'VoteController@store'
+]);
+
+Route::delete('/vote/{vote}', [
+    'as' => 'vote.destroy',
+    'uses' => 'VoteController@destroy'
+]);
