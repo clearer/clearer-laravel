@@ -53,13 +53,28 @@
                             <div class="card-header py-2">
                                 {{ $idea->updated_at->diffForHumans() }}
                             </div>
-                            <a class="card__content p-3" href="/idea/{{ $idea->id }}">{{ $idea->title }}
-</a>
+                            <a class="card__content p-3" href="/idea/{{ $idea->id }}">{{ $idea->title }}</a>
                             <div class="card__footer px-3 py-1 d-flex">
-                                <div class="d-flex mr-auto">
-                                    {{ sizeOf($idea->votes) }}
-                                    @svg('heart', 'ml-2')
-                                </div>
+                                <form method="POST" action="/vote">
+                                    <input type="hidden" name="question_id" value="{{ $question->id }}" />
+                                    <div class="d-flex mr-auto">
+                                        {{ sizeOf($idea->votes) }}
+                                        @if (!$currentUser->votes->isEmpty())
+                                        @foreach($currentUser->votes as $vote)
+                                            @if ($vote->idea_id == $idea->id)
+                                                @svg('heart', ['class' => 'icon active ml-2'])
+                                            @endif
+                                        @endforeach
+                                        @else
+                                            @svg('heart', 'ml-2')                                            
+
+                                        @else 
+                                            @svg('heart', 'ml-2')
+                                               
+                                            
+                                        @endif
+                                    </div>
+                                </form>
                                 <div class="d-flex ml-auto">
                                     @svg('pencil')
                                 </div>

@@ -7,6 +7,10 @@
 
 .icon {
     transform: scale(1.75);
+
+    &.active {
+        fill: red;
+    }
 }
 
 .text-small { font-size: .8em; }

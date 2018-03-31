@@ -11663,6 +11663,10 @@ pre {
           transform: scale(1.75);
 }
 
+.icon.active {
+  fill: red;
+}
+
 .text-small {
   font-size: .8em;
 }

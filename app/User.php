@@ -72,4 +72,9 @@ class User extends SparkUser
     {
         return $this->hasMany('App\Comment');
     }
+
+    public function votes()
+    {
+        return $this->hasMany('App\Vote', 'owner_id');
+    }
 }
