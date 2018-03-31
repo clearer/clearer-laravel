@@ -61,6 +61,16 @@ Route::get('/idea/{idea}', [
     'uses'  => 'IdeaController@show'
 ]);
 
+Route::get('/idea/{idea}/comment/create', [
+    'as'    => 'comment.create',
+    'uses'  => 'CommentController@create'
+]);
+
+Route::post('/idea/{idea}/comment', [
+    'as'    => 'comment.store',
+    'uses'  => 'CommentController@store'
+]);
+
 Route::post('/question/{question}/idea', [
     'as'    => 'idea.store',
     'uses'  => 'IdeaController@store'

@@ -6,14 +6,12 @@
 <div class="row justify-content-center">
     <div class="col-11 col-md-9">
 
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="/{{ $project->team->slug }}/projects" class="d-flex text-dark">
-                    @svg('people', 'mr-2')
-                    {{ $project->team->name }}
-                </a>
-            </li>
-        </ol>
+        <div class="list-group">
+            <a href="/{{ $project->team->slug }}/projects" class="list-group-item text-dark">
+                @svg('people', 'mr-2')
+                {{ $project->team->name }}
+            </a>
+        </div>
         <div class="card card-default">
             <div class="card-header">
                 <div class="d-flex">

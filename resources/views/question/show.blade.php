@@ -5,12 +5,12 @@
 
 <div class="row justify-content-center">
     <div class="col-11 col-md-9">
-        <div class="breadcrumb d-block px-4">
-            <a href="/{{ $question->project->team->slug }}/projects" class="d-flex text-dark">
+        <div class="list-group d-block">
+            <a href="/{{ $question->project->team->slug }}/projects" class="list-group-item text-dark">
                 @svg('people', 'mr-2')
                 {{ $question->project->team->name }}
             </a>
-            <a href="/project/{{ $question->project->id }}" class="d-flex text-dark">
+            <a href="/project/{{ $question->project->id }}" class="list-group-item text-dark">
                 @svg('project', 'mr-2')
                 {{ $question->project->title }}
             </a>
@@ -49,12 +49,12 @@
                 </h6>
                 <div class="cards">
                     @foreach($question->ideas as $idea) 
-                        <a class="card bg-light" href="/idea/{{ $idea->id }}">
+                        <div class="card bg-light" >
                             <div class="card-header py-2">
                                 {{ $idea->updated_at->diffForHumans() }}
                             </div>
-                            <div class="card__content p-3">{{ $idea->title }}
-                            </div>
+                            <a class="card__content p-3" href="/idea/{{ $idea->id }}">{{ $idea->title }}
+</a>
                             <div class="card__footer px-3 py-1 d-flex">
                                 <div class="d-flex mr-auto">
                                     {{ sizeOf($idea->votes) }}
@@ -64,7 +64,7 @@
                                     @svg('pencil')
                                 </div>
                             </div>
-</a>
+                        </div>
                     @endforeach
                 </div>
             @endif

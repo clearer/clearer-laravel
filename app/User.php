@@ -67,4 +67,9 @@ class User extends SparkUser
     {
         return $this->hasMany('App\Idea');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
