@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Auth;
+use DB;
+
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('teamSubscribed');
+    }
+
+    public function show() 
+    {
+        $user = Auth::user();
+        $currentTeam = $user->currentTeam;
+        return redirect()->route('teamDashboard', [$currentTeam->slug]);
+    }
+}

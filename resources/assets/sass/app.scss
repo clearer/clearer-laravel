@@ -1,0 +1,46 @@
+// @import "./spark/spark";
+@import "./../../../vendor/laravel/spark-aurelius/resources/assets/sass/spark";
+
+.avatar {
+    max-width: 25px;
+}
+
+.icon {
+    transform: scale(1.75);
+}
+
+.fill-white { fill: #ffffff; }
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+        flex-basis: 100%;
+        margin: 0 0 1rem;
+
+        &__footer {
+            margin: auto 0 0;
+            border-top: 1px solid #ccc;
+        }
+    }
+}
+
+.d-flex {
+    align-items: center;
+}
+
+
+@media screen and (min-width: 800px) {
+    .cards .card {
+        flex-basis: 48%;
+        margin: 1%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .cards .card {
+        flex-basis: 31.33%;
+        margin: 1%;
+    }
+}
