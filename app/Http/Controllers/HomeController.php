@@ -23,6 +23,6 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $currentTeam = $user->currentTeam;
-        return redirect()->route('teamDashboard', [$currentTeam->slug]);
+        return redirect()->route('project.index', [$currentTeam->slug]);
     }
 }

@@ -26,6 +26,10 @@
     }
 }
 
+.btn {
+    box-shadow: none;
+}
+
 .d-flex {
     align-items: center;
 }
@@ -34,13 +38,12 @@
 @media screen and (min-width: 800px) {
     .cards .card {
         flex-basis: 48%;
-        margin: 1%;
+        margin: 1% 2% 1% 0;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .cards .card {
         flex-basis: 31.33%;
-        margin: 1%;
     }
 }

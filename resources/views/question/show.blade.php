@@ -68,7 +68,7 @@
                     @endforeach
                 </div>
             @endif
-            <a class="btn btn-light" href="/question/{{ $question->id }}/idea/create">Add an Idea</a>
+            <a class="btn btn-primary mt-2" href="/question/{{ $question->id }}/idea/create">Add an Idea</a>
         @endisset
 
             </div>

@@ -42,6 +42,8 @@
                         
                     @endisset
 
+                    <a class="btn btn-primary mt-4" href="/project/create">Add a Project</a>
+
                     </div>
                 </div>
             </div>

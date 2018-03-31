@@ -36,6 +36,6 @@ class QuestionController extends Controller
        $question->owner_id = Auth::user()->id;
        $question->project_id = $project->id;
        $question->save();
-       return redirect()->route('project', [$project->id]);
+       return redirect()->route('project.show', [$project->id]);
     }
 }

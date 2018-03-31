@@ -39,6 +39,6 @@ class IdeaController extends Controller
         $idea->owner_id = Auth::user()->id;
         $idea->save();
 
-        return redirect()->route('question', [$question->id]);
+        return redirect()->route('question.show', [$question->id]);
     }
 }

@@ -41,7 +41,7 @@
                         <p class="text-white">No questions! Add one!</p>
                     
                     @else
-                        <h6 class="d-flex text-white fill-white">
+                        <h6 class="d-flex text-white fill-white mb-4">
                             @svg('question-mark', 'mr-2')
                             Questions
                         </h6>
@@ -56,7 +56,7 @@
                             @endforeach
                         </div>
                     @endif
-                    <a class="btn btn-light" href="/project/{{ $project->id }}/question/create">Add a Question</a>
+                    <a class="btn btn-primary mt-3" href="/project/{{ $project->id }}/question/create">Add a Question</a>
                 @endisset
 
             </div>

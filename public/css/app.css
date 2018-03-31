@@ -11686,6 +11686,11 @@ pre {
   border-top: 1px solid #ccc;
 }
 
+.btn {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .d-flex {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -11696,7 +11701,7 @@ pre {
   .cards .card {
     -ms-flex-preferred-size: 48%;
         flex-basis: 48%;
-    margin: 1%;
+    margin: 1% 2% 1% 0;
   }
 }
 
@@ -11704,7 +11709,6 @@ pre {
   .cards .card {
     -ms-flex-preferred-size: 31.33%;
         flex-basis: 31.33%;
-    margin: 1%;
   }
 }
 

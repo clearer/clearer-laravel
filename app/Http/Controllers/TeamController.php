@@ -30,6 +30,6 @@ class TeamController extends Controller
 
         $projects = Project::where('team_id', $currentTeam->id)->get();
        
-        return view('home', compact(['projects', 'currentTeam']));
+        return view('project.index', compact(['projects', 'currentTeam']));
     }
 }

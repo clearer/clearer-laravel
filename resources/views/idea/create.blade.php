@@ -31,11 +31,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Description:</label>
+                        <label for="description">Additional Context:</label>
                         <textarea id="description" class="form-control" name="description"></textarea>
                     </div>
 
-                    <input type="submit" value="Save" />
+                    <input class="btn btn-primary" type="submit" value="Save" />
 
                 </form>
             </div>
