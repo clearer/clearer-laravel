@@ -10,7 +10,10 @@
                     <div class="card-header">{{ $currentTeam->name  }} {{__(' Dashboard')}}</div>
 
                     <div class="card-body">
-
+                        <h6 class="ml-1 mb-4">
+                            @svg('project', 'mr-2')
+                            Projects
+</h6>
 
                     @isset($projects)
                     
