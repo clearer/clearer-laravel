@@ -56,6 +56,7 @@
                             @endforeach
                         </div>
                     @endif
+                    <a class="btn btn-light" href="/project/{{ $project->id }}/question/create">Add a Question</a>
                 @endisset
 
             </div>

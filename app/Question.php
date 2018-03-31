@@ -13,7 +13,6 @@ class Question extends Model
      */
     protected $fillable = [
         'description',
-        'image',
         'title',
         'owner_id',
         'project_id'

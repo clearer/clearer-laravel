@@ -18,8 +18,7 @@ class ProjectController extends Controller
         $this->middleware('teamSubscribed');
     }
     //
-    public function show($id) {
-        $project = Project::where('id', $id)->first();
-        return view('project', compact(['project']));
+    public function show(Project $project) {
+        return view('project.show', compact(['project']));
     }
 }

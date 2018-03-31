@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\Question;
 use App\Project;
 
@@ -19,13 +20,22 @@ class QuestionController extends Controller
         $this->middleware('teamSubscribed');
     }
     //
-    public function show($id) {
-        $question = Question::where('id', $id)->first();
+    public function show(Question $question) {
         return view('question.show', compact(['question']));
     }
 
-    public function create($id) {
-        $project = Project::where('id', $id)->first();
+    public function create(Project $project) {
         return view('question.create', compact(['project']));
+    }
+
+    public function store(Project $project) {
+       $question = new Question;
+       $question->title = request('question');
+       $question->description = request('description');
+       $question->time_due = request('due_date');
+       $question->owner_id = Auth::user()->id;
+       $question->project_id = $project->id;
+       $question->save();
+       return redirect()->route('project', [$project->id]);
     }
 }

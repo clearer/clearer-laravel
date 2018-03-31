@@ -24,7 +24,28 @@
                     </h6>
                 </div>
             <div class="col-lg-10 py-4 px-0">
-                
+                <form method="POST" action="/project/{{ $project->id }}/question">
+
+                    {{ csrf_field() }}
+
+                    <div class="form-group">
+                        <label for="question">Question:</label>
+                        <input type="text" class="form-control" id="question" name="question" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea id="description" class="form-control" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="due_date">Due Date:</label>
+                        <input type="date" class="form-control" id="due_date" name="due_date" />
+                    </div>
+
+                    <input type="submit" value="Save" />
+
+                </form>
             </div>
             </div>
         </div>

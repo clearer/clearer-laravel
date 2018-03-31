@@ -15,13 +15,23 @@ Route::get('/', 'WelcomeController@show');
 
 Route::get('/home', 'HomeController@show');
 
-Route::get('/project/{id}', 'ProjectController@show');
-Route::get('/project/{id}/question/new', 'QuestionController@create');
+Route::get('/project/{project}', [ 
+    'as' => 'project',
+    'uses' => 'ProjectController@show'
+]);
+Route::get('/project/{project}/question/create', 'QuestionController@create');
+Route::post('/project/{project}/question', 'QuestionController@store');
 
-Route::get('/question/{id}', 'QuestionController@show');
-Route::get('/question/{id}/idea/new', 'IdeaController@create');
 
-Route::get('/idea/{id}', 'IdeaController@show');
+Route::get('/question/{question}', [
+    'as' => 'question',
+    'uses' => 'QuestionController@show'
+]);
+Route::get('/question/{question}/idea/create', 'IdeaController@create');
+
+
+Route::get('/idea/{idea}', 'IdeaController@show');
+Route::post('/question/{question}/idea', 'IdeaController@store');
 
 Route::get('/{team_slug}/projects', [
     'as' => 'teamDashboard',
