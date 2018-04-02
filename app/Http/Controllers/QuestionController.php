@@ -20,22 +20,41 @@ class QuestionController extends Controller
         $this->middleware('teamSubscribed');
     }
     //
-    public function show(Question $question) {
+    public function show(Question $question)
+    {
         return view('question.show', compact(['question']));
     }
 
-    public function create(Project $project) {
+    public function create(Project $project)
+    {
         return view('question.create', compact(['project']));
     }
 
-    public function store(Project $project) {
+    public function edit(Question $question)
+    {
+
+        return view('question.edit', compact(['question']));
+    }
+
+    public function update(Question $question)
+    {
+        $question->title        = request('question');
+        $question->description  = request('description');
+        $question->time_due     = request('due_date');
+        $question->save();
+        return redirect()->route('question.show', [$question]);
+    }
+
+    public function store(Project $project)
+    {
        $question = new Question;
        $question->title = request('question');
        $question->description = request('description');
        $question->time_due = request('due_date');
        $question->owner_id = Auth::user()->id;
        $question->project_id = $project->id;
+       $question->team_id = request('team_id');
        $question->save();
-       return redirect()->route('project.show', [$project->id]);
+       return redirect()->route('project.show', [$question]);
     }
 }

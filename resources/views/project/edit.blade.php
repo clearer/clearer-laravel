@@ -8,19 +8,24 @@
 
         <div class="card card-default">
             <div class="card-body">
-            
-            <form method="POST" action="/project">
 
+            {{ $project }}
+            
+            <form method="POST" action="/project/{{ $project->id }}">
+
+                {{ method_field('PUT') }}
                 {{ csrf_field() }}
+
+                <input type="hidden" name="project_id" value="{{ $project->id }}" />
 
                 <div class="form-group">
                     <label for="title">Project Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" />
+                    <input type="text" class="form-control" id="title" name="title" value="{{ $project->title }}" />
                 </div>
 
                 <div class="form-group">
                     <label for="context">Additional Context:</label>
-                    <textarea id="context" class="form-control" name="context">{{ old('context', $project->context) }}</textarea>
+                    <textarea id="context" class="form-control" name="context">{{ $project->context }}</textarea>
                 </div>
 
                 <input class="btn btn-primary" type="submit" value="Save" />

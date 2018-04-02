@@ -20,6 +20,7 @@ class CreateIdeasTable extends Migration
             $table->uuid('owner_id');
             $table->text('title');
             $table->uuid('question_id');
+            $table->uuid('team_id');
         });
     }
 

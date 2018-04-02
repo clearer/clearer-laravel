@@ -20,6 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->text('description');
             $table->uuid('owner_id');
             $table->uuid('project_id');
+            $table->uuid('team_id');
             $table->dateTime('time_due');
             $table->text('title');
         });

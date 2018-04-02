@@ -7,6 +7,7 @@ $factory->define(App\Question::class, function (Faker $faker) {
         'description' => $faker->realText(255),
         'owner_id' => $faker->numberBetween(1,50),
         'project_id' => $faker->numberBetween(1,50),
+        'team_id'   => $faker->numberBetween(1,5),
         'time_due' => $faker->dateTime,
         'title' => $faker->realText(150)
     ];

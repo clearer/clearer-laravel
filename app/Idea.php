@@ -18,7 +18,8 @@ class Idea extends Model
         'description',
         'title',
         'owner_id',
-        'question_id'
+        'question_id',
+        'team_id'
     ];
 
 
@@ -30,6 +31,11 @@ class Idea extends Model
     public function question()
     {
         return $this->belongsTo('App\Question');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo('App\Team');
     }
 
     public function votes()

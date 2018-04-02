@@ -41,6 +41,16 @@ Route::post('/project/{project}/question', [
     'uses'  => 'QuestionController@store'
 ]);
 
+Route::get('/project/{project}/edit', [
+    'as'    => 'project.edit',
+    'uses'  => 'ProjectController@edit'
+]);
+
+Route::put('/project/{project}', [
+    'as'    => 'project.update',
+    'uses'  => 'ProjectController@update'
+]);
+
 Route::post('/project', [
     'as'    => 'project.store',
     'uses'  => 'ProjectController@store'
@@ -49,6 +59,16 @@ Route::post('/project', [
 Route::get('/question/{question}', [
     'as'    => 'question.show',
     'uses'  => 'QuestionController@show'
+]);
+
+Route::get('/question/{question}/edit', [
+    'as'    => 'question.edit',
+    'uses'  => 'QuestionController@edit'
+]);
+
+Route::put('/question/{question}', [
+    'as'    => 'question.update',
+    'uses'  => 'QuestionController@update'
 ]);
 
 Route::get('/question/{question}/idea/create', [
@@ -78,7 +98,7 @@ Route::post('/question/{question}/idea', [
 
 Route::get('/{team_slug}/projects', [
     'as' => 'project.index',
-    'uses' => 'TeamController@show'
+    'uses' => 'ProjectController@index'
 ]);
 
 Route::post('/vote', [

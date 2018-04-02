@@ -6,13 +6,13 @@
 <div class="row justify-content-center">
     <div class="col-11 col-md-9">
         <div class="breadcrumb d-block px-4">
-            <a href="/{{ $project->team->slug }}/projects" class="d-flex text-dark">
+            <a href="/{{ $question->team->slug }}/projects" class="d-flex text-dark">
                 @svg('people', 'mr-2')
-                {{ $project->team->name }}
+                {{ $question->team->name }}
             </a>
-            <a href="/project/{{ $project->id }}" class="d-flex text-dark">
+            <a href="/project/{{ $question->project->id }}" class="d-flex text-dark">
                 @svg('project', 'mr-2')
-                {{ $project->title }}
+                {{ $question->project->title }}
             </a>
         </div>
         <div class="card card-default">
@@ -42,6 +42,8 @@
                         <label for="due_date">Due Date:</label>
                         <input type="date" class="form-control" id="due_date" name="due_date" />
                     </div>
+
+                    <input type="hidden" name="team_id" value="{{ $project->team->id }}" />
 
                     <input class="btn btn-primary" type="submit" value="Save" />
 

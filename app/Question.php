@@ -15,7 +15,8 @@ class Question extends Model
         'description',
         'title',
         'owner_id',
-        'project_id'
+        'project_id',
+        'team_id'
     ];
 
     protected $dates = [
@@ -31,6 +32,11 @@ class Question extends Model
     public function project()
     {
         return $this->belongsTo('App\Project');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo('App\Team');
     }
 
     public function ideas()

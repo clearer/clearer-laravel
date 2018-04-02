@@ -39,16 +39,16 @@
         <div class="card-body">
         @isset($idea->comments)
             
-            
-            @if($idea->comments->isEmpty())
-            
-                <p class="text-white">No comments yet! Add one!</p>
-            
-            @else
-                <h6 class="d-flex">
+            <h6 class="d-flex">
                     @svg('comment-square', 'mr-2')
                     Comments
                 </h6>
+            
+            @if($idea->comments->isEmpty())
+            
+                <p>No comments yet! Add one!</p>
+            
+            @else
                 <div class="list-group">
                     @foreach($idea->comments as $comment) 
                         <div class="list-group-item" id="comment-{{ $comment->id }}">
