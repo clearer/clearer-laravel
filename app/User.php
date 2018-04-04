@@ -77,4 +77,9 @@ class User extends SparkUser
     {
         return $this->hasMany('App\Vote', 'owner_id');
     }
+
+    public function pins()
+    {
+        return $this->hasMany('App\Pin', 'owner_id');
+    }
 }

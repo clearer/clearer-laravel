@@ -30,6 +30,21 @@ class IdeaController extends Controller
         return view('idea.create', compact(['question']));
     }
 
+    public function edit(Idea $idea)
+    {
+        $this->authorize('edit', $idea);
+        return view('idea.edit', compact(['idea']));
+    }
+
+    public function update(Idea $idea)
+    {
+        $idea->title = request('title');
+        $idea->description = request('description');
+        $idea->save();
+
+        return redirect()->route('idea.show', [$idea]);
+    }
+
     public function store(Question $question)
     {
         $idea = new Idea;  

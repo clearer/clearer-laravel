@@ -22,10 +22,12 @@
                     <div class="d-flex ml-auto">
                         <img src="{{ $project->owner->photo_url }}" class="avatar rounded-circle mr-2" />
                         {{ $project->owner->name }}
-                        <a href="/project/{{ $project->id }}/edit">
-                            @svg('pencil', 'ml-4 mr-2')
-                            Edit
-                        </a>
+                        @if ($project->owner_id == Auth::id())
+                            <a href="/project/{{ $project->id }}/edit">
+                                @svg('pencil', 'ml-4 mr-2')
+                                Edit
+                            </a>
+                        @endif
                     </div>
                 </div>
             <div class="col-lg-10 py-4 px-0">

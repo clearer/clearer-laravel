@@ -18,9 +18,9 @@ class CreateQuestionsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->text('description');
-            $table->uuid('owner_id');
-            $table->uuid('project_id');
-            $table->uuid('team_id');
+            $table->integer('owner_id');
+            $table->integer('project_id');
+            $table->integer('team_id');
             $table->dateTime('time_due');
             $table->text('title');
         });

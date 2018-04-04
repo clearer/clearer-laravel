@@ -28,10 +28,12 @@
                         {{ $question->owner->name }}
                         @svg('clock', 'ml-4 mr-2')
                         {{ date('M d', strtotime($question->time_due)) }}
-                        <a href="/question/{{ $question->id }}/edit">
-                            @svg('pencil', 'ml-4 mr-2')
-                            Edit
-                        </a>
+                        @if ($question->owner_id == Auth::user()->id)
+                            <a href="/question/{{ $question->id }}/edit">
+                                @svg('pencil', 'ml-4 mr-2')
+                                Edit
+                            </a>
+                        @endif
                     </div>
                 </div>
             <div class="col-lg-10 py-4 px-0">
@@ -58,8 +60,8 @@
                             <div class="card-header py-2">
                                 {{ $idea->updated_at->diffForHumans() }}
                                 <div class="float-right">
-                                    @svg('arrow-right')
-</div>
+                                    @svg('pin')
+                                </div>
                             </div>
                             <a class="card__content p-3" href="/idea/{{ $idea->id }}">{{ $idea->title }}</a>
                             <div class="card__footer px-3 py-1 d-flex">
@@ -70,14 +72,25 @@
                                     @endif
                                     <input type="hidden" name="question_id" value="{{ $question->id }}" />
                                     <input type="hidden" name="idea_id" value="{{ $idea->id }}" />
-                                    <a href="javascript:document.forms['favorite-{{ $idea->id }}'].submit()" class="d-flex mr-auto" >
+                                    <votes 
+                                        :votes="{{ json_encode(sizeOf($idea->votes)) }}"
+                                        :question-id="{{ json_encode($question->id) }}"
+                                        :idea-id="{{ json_encode($idea->id) }}"
+                                        :has-voted="{{ json_encode($idea->isVoted($idea->id)) }}" 
+                                    >
+                                    </votes>
+
+                                   <!-- <a href="javascript:document.forms['favorite-{{ $idea->id }}'].submit()" class="d-flex mr-auto" >
                                         {{ sizeOf($idea->votes) }}
                                         @svg('heart', ( $idea->isVoted($idea->id) ? 'ml-2 active' : 'ml-2'))
                                     </a>
+                                        </votes>-->
                                 </form>
-                                <div class="d-flex ml-auto">
-                                    @svg('pencil')
-                                </div>
+                                @if($question->owner_id == Auth::id())
+                                    <div class="d-flex ml-auto">
+                                        @svg('arrow-right')
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endforeach

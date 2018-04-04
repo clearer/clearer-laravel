@@ -38,14 +38,13 @@ class VoteController extends Controller
     public function store(Request $request)
     {
         //
-        $questionId = request('question_id');
 
         $vote = new Vote();
         $vote->idea_id = request('idea_id');
         $vote->owner_id = Auth::user()->id;
         $vote->save();
 
-        return redirect()->route('question.show', [$questionId]);
+        return response($vote->id, 200)->header('Content-Type', 'text/plain');
     }
 
     /**
@@ -91,8 +90,8 @@ class VoteController extends Controller
     public function destroy($id)
     {
         //
-        $question_id = request('question_id');
         Vote::destroy($id);
-        return redirect()->route('question.show', [$question_id]);
+
+        return response('Vote deleted', 200)->header('Content-Type', 'text/plain');
     }
 }

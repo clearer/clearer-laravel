@@ -81,6 +81,16 @@ Route::get('/idea/{idea}', [
     'uses'  => 'IdeaController@show'
 ]);
 
+Route::get('/idea/{idea}/edit', [
+    'as'    => 'idea.edit',
+    'uses'  => 'IdeaController@edit'
+]);
+
+Route::put('/idea/{idea}', [
+    'as'    => 'idea.update',
+    'uses'  => 'IdeaController@update'
+]);
+
 Route::get('/idea/{idea}/comment/create', [
     'as'    => 'comment.create',
     'uses'  => 'CommentController@create'

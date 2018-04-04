@@ -40,6 +40,23 @@
     align-items: center;
 }
 
+.u-clickable {
+    cursor: pointer;
+}
+
+.a-spin {
+    animation: spin 3s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg) scale(1.5);
+        }
+    to {
+        transform:rotate(360deg) scale(1.5);
+        }
+}
+
 
 @media screen and (min-width: 800px) {
     .cards .card {

@@ -15,12 +15,12 @@
 
                 <div class="form-group">
                     <label for="title">Project Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" />
+                    <input type="text" class="form-control" id="title" name="title" />
                 </div>
 
                 <div class="form-group">
                     <label for="context">Additional Context:</label>
-                    <textarea id="context" class="form-control" name="context">{{ old('context', $project->context) }}</textarea>
+                    <textarea id="context" class="form-control" name="context"></textarea>
                 </div>
 
                 <input class="btn btn-primary" type="submit" value="Save" />

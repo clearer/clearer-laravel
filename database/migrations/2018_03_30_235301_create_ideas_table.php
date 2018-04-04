@@ -17,10 +17,10 @@ class CreateIdeasTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->text('description');
-            $table->uuid('owner_id');
+            $table->integer('owner_id');
             $table->text('title');
-            $table->uuid('question_id');
-            $table->uuid('team_id');
+            $table->integer('question_id');
+            $table->integer('team_id');
         });
     }
 

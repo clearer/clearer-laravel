@@ -29,6 +29,13 @@
                     <div class="d-flex ml-auto">
                         @svg('heart', 'ml-4')
                         <span class="ml-2">{{ sizeOf($idea->votes) }}</span>
+    
+                        @if($idea->owner_id == Auth::id())
+                            <a href="/idea/{{ $idea->id }}/edit">
+                                @svg('pencil', 'ml-4 mr-2')
+                                Edit
+                            </a>
+                        @endif
                     </div>
                 </div>
             <div class="col-lg-10 py-4 px-0">

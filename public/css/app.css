@@ -11705,6 +11705,39 @@ pre {
           align-items: center;
 }
 
+.u-clickable {
+  cursor: pointer;
+}
+
+.a-spin {
+  -webkit-animation: spin 3s infinite linear;
+          animation: spin 3s infinite linear;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg) scale(1.5);
+            transform: rotate(0deg) scale(1.5);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) scale(1.5);
+            transform: rotate(360deg) scale(1.5);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg) scale(1.5);
+            transform: rotate(0deg) scale(1.5);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) scale(1.5);
+            transform: rotate(360deg) scale(1.5);
+  }
+}
+
 @media screen and (min-width: 800px) {
   .cards .card {
     -ms-flex-preferred-size: 48%;
