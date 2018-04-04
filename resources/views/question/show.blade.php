@@ -65,27 +65,13 @@
                             </div>
                             <a class="card__content p-3" href="/idea/{{ $idea->id }}">{{ $idea->title }}</a>
                             <div class="card__footer px-3 py-1 d-flex">
-                                <form method="POST" id="favorite-{{ $idea->id }}" action="{{ $idea->isVoted($idea->id) ? '/vote/' . $idea->isVoted($idea->id)->id : '/vote' }}">
-                                    {{ csrf_field() }}
-                                    @if ( $idea->isVoted($idea->id))
-                                        {{ method_field('DELETE') }}
-                                    @endif
-                                    <input type="hidden" name="question_id" value="{{ $question->id }}" />
-                                    <input type="hidden" name="idea_id" value="{{ $idea->id }}" />
-                                    <votes 
-                                        :votes="{{ json_encode(sizeOf($idea->votes)) }}"
-                                        :question-id="{{ json_encode($question->id) }}"
-                                        :idea-id="{{ json_encode($idea->id) }}"
-                                        :has-voted="{{ json_encode($idea->isVoted($idea->id)) }}" 
-                                    >
-                                    </votes>
-
-                                   <!-- <a href="javascript:document.forms['favorite-{{ $idea->id }}'].submit()" class="d-flex mr-auto" >
-                                        {{ sizeOf($idea->votes) }}
-                                        @svg('heart', ( $idea->isVoted($idea->id) ? 'ml-2 active' : 'ml-2'))
-                                    </a>
-                                        </votes>-->
-                                </form>
+                                <votes 
+                                    :votes="{{ json_encode(sizeOf($idea->votes)) }}"
+                                    :question-id="{{ json_encode($question->id) }}"
+                                    :idea-id="{{ json_encode($idea->id) }}"
+                                    :has-voted="{{ json_encode($idea->isVoted($idea->id)) }}" 
+                                >
+                                </votes>
                                 @if($question->owner_id == Auth::id())
                                     <div class="d-flex ml-auto">
                                         @svg('arrow-right')
