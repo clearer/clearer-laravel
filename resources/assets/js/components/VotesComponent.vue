@@ -39,16 +39,20 @@ export default {
             }
         },
         createVote: function() {
+            
             axios
                 .post('/vote', {
                     idea_id: this.ideaId
                 })
                 .then( res => {
                     console.log(res);
-                    this.voteId = res.data;
-                    this.pending = false;
                     this.voteStatus = true;
                     this.voteCount++;
+                    this.voteId = res.data;
+                    this.pending = false;
+                })
+                .catch( err => {
+                    console.log(err);
                 });
         },
         destroyVote: function() {
@@ -62,6 +66,9 @@ export default {
                     this.pending = false;
                     this.voteStatus = false;
                     this.voteCount--;
+                })
+                .catch( err => {
+                    console.log(err);
                 });
         }
     }

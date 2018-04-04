@@ -1958,10 +1958,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 idea_id: this.ideaId
             }).then(function (res) {
                 console.log(res);
-                _this.voteId = res.data;
-                _this.pending = false;
                 _this.voteStatus = true;
                 _this.voteCount++;
+                _this.voteId = res.data;
+                _this.pending = false;
+            }).catch(function (err) {
+                console.log(err);
             });
         },
         destroyVote: function destroyVote() {
@@ -1974,6 +1976,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this2.pending = false;
                 _this2.voteStatus = false;
                 _this2.voteCount--;
+            }).catch(function (err) {
+                console.log(err);
             });
         }
     }
