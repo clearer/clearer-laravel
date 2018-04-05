@@ -22,6 +22,6 @@ class IdeaPolicy
 
     public function edit(User $user, Idea $idea)
     {
-        return $user->id === $idea->owner_id;
+        return $user->id === $idea->user_id;
     }
 }

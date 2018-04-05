@@ -27,8 +27,8 @@
                         <img src="{{ $question->owner->photo_url }}" class="avatar rounded-circle mr-2" />
                         {{ $question->owner->name }}
                         @svg('clock', 'ml-4 mr-2')
-                        {{ date('M d', strtotime($question->time_due)) }}
-                        @if ($question->owner_id == Auth::user()->id)
+                        {{ date('M d', strtotime($question->due_date)) }}
+                        @if ($question->user_id == Auth::user()->id)
                             <a href="/question/{{ $question->id }}/edit">
                                 @svg('pencil', 'ml-4 mr-2')
                                 Edit
@@ -59,9 +59,6 @@
                         <div class="card bg-light" >
                             <div class="card-header py-2">
                                 {{ $idea->updated_at->diffForHumans() }}
-                                <div class="float-right">
-                                    @svg('pin')
-                                </div>
                             </div>
                             <a class="card__content p-3" href="/idea/{{ $idea->id }}">{{ $idea->title }}</a>
                             <div class="card__footer px-3 py-1 d-flex">
@@ -72,7 +69,7 @@
                                     :has-voted="{{ json_encode($idea->isVoted($idea->id)) }}" 
                                 >
                                 </votes>
-                                @if($question->owner_id == Auth::id())
+                                @if($question->user_id == Auth::id())
                                     <div class="d-flex ml-auto">
                                         @svg('arrow-right')
                                     </div>

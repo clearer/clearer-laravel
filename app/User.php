@@ -17,7 +17,7 @@ class User extends SparkUser
      */
     protected $fillable = [
         'name',
-        'email',
+        'email'
     ];
 
     /**
@@ -53,14 +53,9 @@ class User extends SparkUser
         'uses_two_factor_auth' => 'boolean',
     ];
 
-    public function questions() 
+    public function comments()
     {
-        return $this->hasMany('App\Question');
-    }
-
-    public function projects()
-    {
-        return $this->hasMany('App\Project');
+        return $this->hasMany('App\Comment');
     }
 
     public function ideas()
@@ -68,18 +63,18 @@ class User extends SparkUser
         return $this->hasMany('App\Idea');
     }
 
-    public function comments()
+    public function projects()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Project');
+    }
+
+    public function questions() 
+    {
+        return $this->hasMany('App\Question');
     }
 
     public function votes()
     {
-        return $this->hasMany('App\Vote', 'owner_id');
-    }
-
-    public function pins()
-    {
-        return $this->hasMany('App\Pin', 'owner_id');
+        return $this->hasMany('App\Vote', 'user_id');
     }
 }

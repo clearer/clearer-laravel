@@ -12,10 +12,13 @@ class Comment extends Model
      * @var array
      */
     protected $fillable = [
+        'text',
+        'comment_id',
         'idea_id',
-        'owner_id',
-        'reply_to',
-        'text'
+        'project_id',
+        'question_id',
+        'team_id',
+        'user_id'
     ];
 
     public function idea()
@@ -28,12 +31,22 @@ class Comment extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function project()
+    {
+        return $this->belongsTo('App\Project');
+    }
+
     public function replies()
     {
         return $this->hasMany('App\Comment');
     }
 
     public function reply() {
-        return $this->belongsTo('App\Comment', 'reply_to');
+        return $this->belongsTo('App\Comment');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo('App\Team');
     }
 }

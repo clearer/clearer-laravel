@@ -17,7 +17,6 @@ import axios from 'axios';
 export default {
     props: [
         'votes',
-        'ownerId',
         'ideaId',
         'hasVoted'
     ],

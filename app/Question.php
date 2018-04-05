@@ -12,17 +12,26 @@ class Question extends Model
      * @var array
      */
     protected $fillable = [
-        'description',
         'title',
-        'owner_id',
+        'description',
         'project_id',
-        'team_id'
+        'team_id',
+        'user_id'
     ];
 
     protected $dates = [
-        'time_due'
+        'due_date'
     ];
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function ideas()
+    {
+        return $this->hasMany('App\Idea');
+    }
 
     public function owner()
     {
@@ -37,10 +46,5 @@ class Question extends Model
     public function team()
     {
         return $this->belongsTo('App\Team');
-    }
-
-    public function ideas()
-    {
-        return $this->hasMany('App\Idea');
     }
 }

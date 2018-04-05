@@ -41,7 +41,7 @@ class VoteController extends Controller
 
         $vote = new Vote();
         $vote->idea_id = request('idea_id');
-        $vote->owner_id = Auth::user()->id;
+        $vote->user_id = Auth::user()->id;
         $vote->save();
 
         return response($vote->id, 200)->header('Content-Type', 'text/plain');

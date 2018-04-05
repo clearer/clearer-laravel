@@ -41,7 +41,7 @@
 
                     <div class="form-group">
                         <label for="due_date">Due Date:</label>
-                        <input type="date" class="form-control" id="due_date" name="due_date" value="{{ $question->time_due->format('Y-m-d') }}" />
+                        <input type="date" class="form-control" id="due_date" name="due_date" value="{{ $question->due_date->format('Y-m-d') }}" />
                     </div>
 
                     <input class="btn btn-primary" type="submit" value="Save" />

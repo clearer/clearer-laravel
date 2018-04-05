@@ -15,17 +15,17 @@ class Vote extends Model
      */
     protected $fillable = [
         'idea_id',
-        'owner_id'
+        'user_id'
     ];
-
-    public function owner()
-    {
-        return $this->belongsTo('App\User');
-    }
 
     public function idea()
     {
         return $this->belongsTo('App\Idea');
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo('App\User');
     }
 
 }

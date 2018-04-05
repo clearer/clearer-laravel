@@ -12,12 +12,21 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-        'color',
-        'context',
-        'owner_id',
+        'description',
+        'title',
         'team_id',
-        'title'
+        'user_id'
     ];
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function ideas()
+    {
+        return $this->hasMany('App\Idea');
+    }
 
     public function owner() 
     {

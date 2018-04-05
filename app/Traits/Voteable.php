@@ -12,7 +12,7 @@ trait Voteable {
     {
         
         return DB::table('votes')
-            ->where('owner_id', Auth::user()->id)
+            ->where('user_id', Auth::user()->id)
             ->where('idea_id', $ideaId)
             ->first();
     }

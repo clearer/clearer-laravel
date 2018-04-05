@@ -40,7 +40,7 @@ class QuestionController extends Controller
     {
         $question->title        = request('question');
         $question->description  = request('description');
-        $question->time_due     = request('due_date');
+        $question->due_date     = request('due_date');
         $question->save();
         return redirect()->route('question.show', [$question]);
     }
@@ -50,8 +50,8 @@ class QuestionController extends Controller
        $question = new Question;
        $question->title = request('question');
        $question->description = request('description');
-       $question->time_due = request('due_date');
-       $question->owner_id = Auth::user()->id;
+       $question->due_date = request('due_date');
+       $question->user_id = Auth::user()->id;
        $question->project_id = $project->id;
        $question->team_id = request('team_id');
        $question->save();

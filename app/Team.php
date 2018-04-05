@@ -8,6 +8,16 @@ class Team extends SparkTeam
 {
     //
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    public function ideas()
+    {
+        return $this->hasMany('App\Idea');
+    }
+
     public function projects()
     {
         return $this->hasMany('App\Project');
@@ -16,10 +26,5 @@ class Team extends SparkTeam
     public function questions()
     {
         return $this->hasMany('App\Questions');
-    }
-
-    public function ideas()
-    {
-        return $this->hasMany('App\Idea');
     }
 }

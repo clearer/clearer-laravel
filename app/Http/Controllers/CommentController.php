@@ -43,7 +43,8 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->text = request('text');
         $comment->idea_id = $idea->id;
-        $comment->owner_id = Auth::user()->id;
+        $comment->user_id = Auth::user()->id;
+        $comment->reply_to = 0;
         $comment->save();
 
         return redirect()->route('idea.show', compact(['idea']));

@@ -15,17 +15,27 @@ class Idea extends Model
      * @var array
      */
     protected $fillable = [
-        'description',
         'title',
-        'owner_id',
+        'description',
+        'project_id',
         'question_id',
-        'team_id'
+        'team_id',
+        'user_id'
     ];
 
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 
     public function owner()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function project()
+    {
+        return $this->belongsTo('App\Project');
     }
 
     public function question()
@@ -41,10 +51,5 @@ class Idea extends Model
     public function votes()
     {
         return $this->hasMany('App\Vote');
-    }
-
-    public function comments()
-    {
-        return $this->hasMany('App\Comment');
     }
 }

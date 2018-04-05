@@ -33,17 +33,12 @@ class ProjectController extends Controller
         }
         
         $projects = Project::whereIn('team_id', $teams)
-            ->where('owner_id', $user->id)
+            ->where('user_id', $user->id)
             ->get();
 
         $upcoming = Question::whereIn('team_id', $teams)
-            ->where('time_due', '<', Carbon::now()->addWeek())
-            ->where('time_due', '>=', Carbon::now())
-            ->get();
-
-        $recent = Idea::whereIn('team_id', $teams)
-            ->orderBy('updated_at', 'desc')
-            ->limit(5)
+            ->where('due_date', '<', Carbon::now()->addWeeks(2))
+            ->where('due_date', '>=', Carbon::now())
             ->get();
        
         return view('project.index', compact(['projects', 'upcoming', 'recent']));
@@ -83,7 +78,7 @@ class ProjectController extends Controller
         $project->title     = request('title');
         $project->context   = request('context');
         $project->color     = '#ffffff';
-        $project->owner_id  = $user->id;
+        $project->user_id  = $user->id;
         $project->team_id   = $user->currentTeam->id;
         $project->save();
 

@@ -22,7 +22,7 @@
                     <div class="d-flex ml-auto">
                         <img src="{{ $project->owner->photo_url }}" class="avatar rounded-circle mr-2" />
                         {{ $project->owner->name }}
-                        @if ($project->owner_id == Auth::id())
+                        @if ($project->user_id == Auth::id())
                             <a href="/project/{{ $project->id }}/edit">
                                 @svg('pencil', 'ml-4 mr-2')
                                 Edit
@@ -54,7 +54,7 @@
                                 <a class="list-group-item list-group-item-action bg-light d-flex flex-column flex-lg-row" href="/question/{{ $question->id }}">
                                     <div class="col-12 col-lg-9 p-0">{{ $question->title }}</div>
                                     <div class="col-12 col-lg-3 p-0 d-flex justify-content-lg-end mt-3 mt-lg-0">
-                                        @svg('clock', 'mr-2') {{ $question->time_due->diffForHumans() }}
+                                        @svg('clock', 'mr-2') {{ $question->due_date->diffForHumans() }}
                                     </div>
                                 </a>
                             @endforeach
