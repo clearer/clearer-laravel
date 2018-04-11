@@ -25,9 +25,9 @@ class IdeaController extends Controller
         return view('idea.show', compact(['idea']));
     }
 
-    public function create(Question $question)
+    public function create(Idea $idea)
     {
-        return view('idea.create', compact(['question']));
+        return view('idea.create', compact(['idea']));
     }
 
     public function edit(Idea $idea)
@@ -47,9 +47,11 @@ class IdeaController extends Controller
 
     public function store(Question $question)
     {
+
         $idea = new Idea;  
         $idea->title = request('title');
         $idea->description = request('description');
+        $idea->project_id = $question->project->id;
         $idea->question_id = $question->id;
         $idea->user_id = Auth::user()->id;
         $idea->team_id = request('team_id');

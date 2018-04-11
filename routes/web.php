@@ -36,7 +36,7 @@ Route::get('/project/{project}/question/create', [
     'uses'  => 'QuestionController@create'
 ]);
 
-Route::post('/project/{project}/question', [
+Route::post('/question', [
     'as'    => 'question.store',
     'uses'  => 'QuestionController@store'
 ]);
@@ -101,7 +101,7 @@ Route::post('/idea/{idea}/comment', [
     'uses'  => 'CommentController@store'
 ]);
 
-Route::post('/question/{question}/idea', [
+Route::post('/idea', [
     'as'    => 'idea.store',
     'uses'  => 'IdeaController@store'
 ]);

@@ -1,7 +1,9 @@
-@extends('spark::layouts.app')
+@extends('layouts.app')
 
 @section('content')
+
 <home :user="user" inline-template>
+
     <div class="container">
         <!-- Application Dashboard -->
         <div class="row flex-row-reverse justify-content-around">
@@ -49,7 +51,7 @@
                                     {{ $project->team->name }}
                                     <div class="w-25">
                                         <div class="d-flex justify-content-end">
-                                            <img src="{{ $project->owner->photo_url }}" class="rounded-circle avatar mr-2" />
+                                            <img src="{{ $project->user->photo_url }}" class="rounded-circle avatar mr-2" />
                                             
                                             <div class="d-flex justify-content-end">
                                             </div>

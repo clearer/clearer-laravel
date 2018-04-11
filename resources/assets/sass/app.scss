@@ -1,9 +1,9 @@
 // @import "./spark/spark";
 @import "./../../../vendor/laravel/spark-aurelius/resources/assets/sass/spark";
 
-.avatar {
-    max-width: 25px;
-}
+@import 'utilities/main';
+@import 'components/main';
+
 
 .icon {
     transform: scale(1.75);

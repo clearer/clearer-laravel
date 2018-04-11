@@ -12,7 +12,7 @@ class Comment extends Model
      * @var array
      */
     protected $fillable = [
-        'text',
+        'title',
         'comment_id',
         'idea_id',
         'project_id',
@@ -26,7 +26,7 @@ class Comment extends Model
         return $this->belongsTo('App\Idea');
     }
 
-    public function owner()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }

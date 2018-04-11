@@ -24,8 +24,8 @@
                         Question
                     </h6>
                     <div class="d-flex ml-auto">
-                        <img src="{{ $question->owner->photo_url }}" class="avatar rounded-circle mr-2" />
-                        {{ $question->owner->name }}
+                        <img src="{{ $question->user->photo_url }}" class="avatar rounded-circle mr-2" />
+                        {{ $question->user->name }}
                         @svg('clock', 'ml-4 mr-2')
                         {{ date('M d', strtotime($question->due_date)) }}
                         @if ($question->user_id == Auth::user()->id)

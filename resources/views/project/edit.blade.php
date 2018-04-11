@@ -24,8 +24,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="context">Additional Context:</label>
-                    <textarea id="context" class="form-control" name="context">{{ $project->context }}</textarea>
+                    <label for="description">Additional Context:</label>
+                    <textarea id="description" class="form-control" name="description">{{ $project->description }}</textarea>
                 </div>
 
                 <input class="btn btn-primary" type="submit" value="Save" />

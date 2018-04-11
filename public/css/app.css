@@ -1,4 +1,4 @@
-body.stop-scrolling {
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900|Material+Icons);body.stop-scrolling {
   height: 100%;
   overflow: hidden; }
 
@@ -11654,8 +11654,290 @@ pre {
   border-radius: 50%;
 }
 
-.avatar {
-  max-width: 25px;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.slide-down-enter-active {
+  -webkit-animation: slide-down .15s linear;
+          animation: slide-down .15s linear;
+}
+
+.slide-down-leave-active {
+  animation: slide-down .15s linear reverse;
+}
+
+@-webkit-keyframes slide-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, -20px);
+            transform: translate(0, -20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, -20px);
+            transform: translate(0, -20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.avatar,
+.avatar--sm,
+.avatar--xs {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+.avatar--sm {
+  height: 30px;
+  width: 30px;
+}
+
+.avatar--xs {
+  height: 20px;
+  width: 20px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown__label {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+}
+
+.dropdown__label img,
+.dropdown__label .material-icons {
+  margin-right: .5rem;
+}
+
+.dropdown__label:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown__label::after {
+  content: 'arrow_drop_down';
+  font-family: 'Material Icons';
+}
+
+.dropdown__menu {
+  background: #FFFFFF;
+  border: 1px solid #DFDCE3;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 10px 28px -9px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 10px 28px -9px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 4.25rem;
+  right: 0;
+  z-index: 9999;
+}
+
+.dropdown__menu-item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #111111;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: .75rem 1.25rem;
+  width: 200px;
+}
+
+.dropdown__menu-item:hover {
+  text-decoration: none;
+}
+
+.dropdown__menu-item img,
+.dropdown__menu-item .material-icons {
+  margin-right: .5rem;
+}
+
+.dropdown__menu-item + .dropdown__menu-item {
+  border-top: 1px solid #DFDCE3;
+}
+
+.app-header {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: linear-gradient(60deg, #416dac, #76d6ca);
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 2rem;
+}
+
+.app-header__logo {
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+
+.app-header__menus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
 }
 
 .icon {

@@ -55,6 +55,6 @@ class QuestionController extends Controller
        $question->project_id = $project->id;
        $question->team_id = request('team_id');
        $question->save();
-       return redirect()->route('project.show', [$question]);
+       return redirect()->route('project.show', [$project]);
     }
 }

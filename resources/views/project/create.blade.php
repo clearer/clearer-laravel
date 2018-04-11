@@ -20,7 +20,7 @@
 
                 <div class="form-group">
                     <label for="context">Additional Context:</label>
-                    <textarea id="context" class="form-control" name="context"></textarea>
+                    <textarea id="description" class="form-control" name="description"></textarea>
                 </div>
 
                 <input class="btn btn-primary" type="submit" value="Save" />

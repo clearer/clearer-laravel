@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;    
+use Illuminate\Http\Request;   
+use App\Team; 
 use App\Project;
 use App\Question;
 use App\Idea;
@@ -23,20 +24,18 @@ class ProjectController extends Controller
     }
     //
 
-    public function index() {
+    public function index($teamSlug, Request $request) {
 
         $user = Auth::user();
-        $teams = [];
 
-        foreach ($user->teams as $team) {
-            array_push($teams, $team->id);
-        }
+        $team = Team::where('slug', $teamSlug)->first();
+        $request->user()->switchToTeam($team);
         
-        $projects = Project::whereIn('team_id', $teams)
+        $projects = Project::where('team_id', $team->id)
             ->where('user_id', $user->id)
             ->get();
 
-        $upcoming = Question::whereIn('team_id', $teams)
+        $upcoming = Question::where('team_id', $team->id)
             ->where('due_date', '<', Carbon::now()->addWeeks(2))
             ->where('due_date', '>=', Carbon::now())
             ->get();
@@ -65,7 +64,7 @@ class ProjectController extends Controller
     {
         $user               = Auth::user();
         $project->title     = request('title');
-        $project->context   = request('context'); 
+        $project->description   = request('description'); 
         $project->save();
 
         return redirect()->route('project.show', [$project]);
@@ -76,8 +75,7 @@ class ProjectController extends Controller
         $user               = Auth::user();
         $project            = new Project;
         $project->title     = request('title');
-        $project->context   = request('context');
-        $project->color     = '#ffffff';
+        $project->description   = request('description');
         $project->user_id  = $user->id;
         $project->team_id   = $user->currentTeam->id;
         $project->save();

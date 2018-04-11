@@ -20,8 +20,8 @@
                         Project
                     </h6>
                     <div class="d-flex ml-auto">
-                        <img src="{{ $project->owner->photo_url }}" class="avatar rounded-circle mr-2" />
-                        {{ $project->owner->name }}
+                        <img src="{{ $project->user->photo_url }}" class="avatar rounded-circle mr-2" />
+                        {{ $project->user->name }}
                         @if ($project->user_id == Auth::id())
                             <a href="/project/{{ $project->id }}/edit">
                                 @svg('pencil', 'ml-4 mr-2')
@@ -32,7 +32,7 @@
                 </div>
             <div class="col-lg-10 py-4 px-0">
                 <div class="card-title"><h3>{{ $project->title }}</h3></div>
-                <div class="card-subtitle text-muted my-4">{{ $project->context }}</div>
+                <div class="card-subtitle text-muted my-4">{{ $project->description }}</div>
             </div>
             </div>
             <div class="card-body bg-dark">

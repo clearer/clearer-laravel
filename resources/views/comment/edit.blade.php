@@ -14,7 +14,7 @@
 
                     <div class="form-group">
                         <label for="question">Comment:</label>
-                        <input type="text" class="form-control" id="text" name="text" />
+                        <input type="text" class="form-control" id="title" name="title" />
                     </div>
 
                     <input class="btn btn-primary" type="submit" value="Save" />

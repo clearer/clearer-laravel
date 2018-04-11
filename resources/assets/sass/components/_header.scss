@@ -1,0 +1,17 @@
+.app-header {
+    align-items: center;
+    background: linear-gradient(60deg, $secondary, $primary);
+    color: $white;
+    display: flex;
+    padding: 0 2rem;
+
+    &__logo {
+        font-size: 1.6rem;
+        letter-spacing: 1px;
+    }
+
+    &__menus {
+        display: flex;
+        margin-left: auto;
+    }
+}

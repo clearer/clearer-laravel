@@ -31,51 +31,68 @@
                         <span class="ml-2">{{ sizeOf($idea->votes) }}</span>
     
                         @if($idea->user_id == Auth::id())
-                            <a href="/idea/{{ $idea->id }}/edit">
-                                @svg('pencil', 'ml-4 mr-2')
-                                Edit
-                            </a>
+                            <edit inline-template>
+                                <div>
+                                    <button type="button" data-toggle="modal" data-target="#myModal">  
+                                        @svg('pencil', 'mr-2')
+                                        Edit
+                                    </button>
+                                    <div class="modal fade" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content p-4">
+                                                @include('idea.upsert')
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </edit>
                         @endif
                     </div>
                 </div>
+            </div>
             <div class="col-lg-10 py-4 px-0">
                 <div class="card-title"><h3>{{ $idea->title }}</h3></div>
                 <div class="card-subtitle text-muted my-4">{{ $idea->description }}</div>
             </div>
         </div>
         <div class="card-body">
-        @isset($idea->comments)
+            @isset($idea->comments)
             
-            <h6 class="d-flex">
+                <h6 class="d-flex">
                     @svg('comment-square', 'mr-2')
                     Comments
                 </h6>
             
-            @if($idea->comments->isEmpty())
+                @if($idea->comments->isEmpty())
             
-                <p>No comments yet! Add one!</p>
+                    <p>No comments yet! Add one!</p>
             
-            @else
-                <div class="list-group">
-                    @foreach($idea->comments as $comment) 
-                        <div class="list-group-item" id="comment-{{ $comment->id }}">
-                            @isset($comment->reply)
-                            <div class="text-small"><a href="#{{ $comment->reply->id }}">Replying to {{ $comment->reply->owner->name }}</a></div>
-                            @endisset
-                            {{ $comment->text }}
-                            <br/>
+                @else
 
-                            <div class="float-right">
-                                <img src="{{ $comment->owner->photo_url }}" class="avatar rounded-circle mr-2" />
-                                <span class="text-small">{{ $comment->owner->name }} | {{ $comment->updated_at->diffForHumans() }}</span>
+                    <div class="list-group">
+                        @foreach($idea->comments as $comment) 
+                            <div class="list-group-item" id="comment-{{ $comment->id }}">
+
+                                @isset($comment->reply)
+                                    <div class="text-small"><a href="#{{ $comment->reply->id }}">Replying to {{ $comment->reply->user->name }}</a></div>
+                                @endisset
+
+                                {{ $comment->title }}
+                                
+                                <br/>
+
+                                <div class="float-right">
+                                    <img src="{{ $comment->user->photo_url }}" class="avatar rounded-circle mr-2" />
+                                    <span class="text-small">{{ $comment->user->name }} | {{ $comment->updated_at->diffForHumans() }}</span>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
+                        @endforeach
+                    </div>
+                @endif
             @endisset
+
             <a href="/idea/{{ $idea->id }}/comment/create" class="btn btn-primary mt-4">Add a Comment</a>
-            </div>
+        </div>
     </div>
 </div>
 @endsection
