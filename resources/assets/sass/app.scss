@@ -1,11 +1,11 @@
 // @import "./spark/spark";
-@import "./../../../vendor/laravel/spark-aurelius/resources/assets/sass/spark";
+// @import "./../../../vendor/laravel/spark-aurelius/resources/assets/sass/spark";
 
 @import 'utilities/main';
 @import 'components/main';
 
 main {
-    background: $muted;
+    background: linear-gradient(45deg, $secondary, $primary);
     min-height: 100vh;
     padding: 3rem 2rem;
 }

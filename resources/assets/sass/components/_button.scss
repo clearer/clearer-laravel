@@ -5,8 +5,13 @@
     color: $white;
     display: flex;
     padding: .5rem .75rem;
+    transition: all .3s;
 
     img, .material-icons {
         margin-right: .5rem;
+    }
+
+    &:hover {
+        background: lighten($primary, 5%);
     }
 }

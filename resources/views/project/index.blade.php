@@ -53,6 +53,8 @@
 
 <div class="content--secondary">
 
+    @if(!$upcoming->isEmpty())
+
     @component('components.widget')
 
         @slot('title')
@@ -74,6 +76,8 @@
         @endslot
 
     @endcomponent
+
+    @endif
 
     @component('components.widget')
 
