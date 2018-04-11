@@ -1,0 +1,41 @@
+.widget {
+    border: 1px solid $muted;
+
+    + .widget {
+        margin-top: 3rem;
+    }
+
+    &__header {
+        align-items: center;
+        background: $grey-dark;
+        border-radius: 3px 3px 0 0;
+        color: $white;
+        display: flex;
+        padding: 1rem 2rem;
+
+        .button {
+            margin-left: auto;
+        }
+    }
+
+    &__title {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    &__nav {
+        background: $grey;
+        color: $black;
+        display: flex;
+        padding: 0 1rem;
+
+        a {
+            padding: 1rem;
+        }
+    }
+
+    &__content {
+        background: $white;
+        border-radius: 0 0 3px 3px;
+    }
+}

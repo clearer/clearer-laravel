@@ -1,0 +1,40 @@
+.list {
+    
+    &__item {
+        align-items: center;
+        color: $black;
+        display: flex;
+        padding: 1rem 2rem;
+
+        img, .material-icons {
+            margin-right: .5rem;
+        }
+
+        + .list__item {
+            border-top: 1px solid $muted;
+        }
+
+        &--new {
+            position: relative;
+            
+            &::before {
+                content: '';
+                height: 10px;
+                width: 10px;
+                display: block;
+                background: $primary;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                margin-top: -5px;
+                left: .75rem;
+            }
+        }
+    }
+
+    &__item-tools {
+        align-items: center;
+        display: flex;
+        margin-left: auto;
+    }
+}
