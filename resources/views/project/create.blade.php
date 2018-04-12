@@ -1,34 +1,30 @@
-@extends('spark::layouts.app')
-
-@section('content')
-
-
-<div class="row justify-content-center">
-    <div class="col-11 col-md-9">
-
-        <div class="card card-default">
-            <div class="card-body">
-            
-            <form method="POST" action="/project">
-
-                {{ csrf_field() }}
-
-                <div class="form-group">
-                    <label for="title">Project Title:</label>
-                    <input type="text" class="form-control" id="title" name="title" />
-                </div>
-
-                <div class="form-group">
-                    <label for="context">Additional Context:</label>
-                    <textarea id="description" class="form-control" name="description"></textarea>
-                </div>
-
-                <input class="btn btn-primary" type="submit" value="Save" />
-
-                </form>
-
-            </div>
-        </div>
+@if ($errors->any())
+    <div class="alert alert--danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
-</div>
-@endsection
+@endif
+
+<form method="POST" class="form" action="/project">
+
+    {{ csrf_field() }}
+
+    <div class="form__group">
+        <label for="title">Project Title</label>
+        <input type="text" id="title" name="title" value="{{ old('title') }}" />
+    </div>
+
+    <div class="form__group">
+        <label for="context">Additional Context</label>
+        <textarea id="description" name="description">{{ old('description')  }}</textarea>
+    </div>
+
+    <button type="submit" class="button">
+        <i class="material-icons">save</i>
+        Save
+    </button>
+
+</form>

@@ -11,14 +11,23 @@
 |
 */
 
+// WELCOME ROUTES
+
 Route::get('/', [
     'as'    => 'welcome.show',
     'uses'  => 'WelcomeController@show'
 ]);
 
 Route::get('/home', [
-    'as'    => 'home.show',
-    'uses'  => 'HomeController@show'
+    'as'    => 'welcome.index',
+    'uses'  => 'WelcomeController@index'
+]);
+
+// PROJECT ROUTES
+
+Route::get('/{team_slug}/projects', [
+    'as' => 'project.index',
+    'uses' => 'ProjectController@index'
 ]);
 
 Route::get('/project/create', [
@@ -31,14 +40,9 @@ Route::get('/project/{project}', [
     'uses' => 'ProjectController@show'
 ]);
 
-Route::get('/project/{project}/question/create', [
-    'as'    => 'question.create',
-    'uses'  => 'QuestionController@create'
-]);
-
-Route::post('/question', [
-    'as'    => 'question.store',
-    'uses'  => 'QuestionController@store'
+Route::post('/project', [
+    'as'    => 'project.store',
+    'uses'  => 'ProjectController@store'
 ]);
 
 Route::get('/project/{project}/edit', [
@@ -51,9 +55,17 @@ Route::put('/project/{project}', [
     'uses'  => 'ProjectController@update'
 ]);
 
-Route::post('/project', [
-    'as'    => 'project.store',
-    'uses'  => 'ProjectController@store'
+
+
+
+Route::get('/project/{project}/question/create', [
+    'as'    => 'question.create',
+    'uses'  => 'QuestionController@create'
+]);
+
+Route::post('/question', [
+    'as'    => 'question.store',
+    'uses'  => 'QuestionController@store'
 ]);
 
 Route::get('/question/{question}', [
@@ -104,11 +116,6 @@ Route::post('/idea/{idea}/comment', [
 Route::post('/idea', [
     'as'    => 'idea.store',
     'uses'  => 'IdeaController@store'
-]);
-
-Route::get('/{team_slug}/projects', [
-    'as' => 'project.index',
-    'uses' => 'ProjectController@index'
 ]);
 
 Route::post('/vote', [

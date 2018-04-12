@@ -30,7 +30,7 @@
     <div id="spark-app">
 
     <header class="app-header">
-        <p class="app-header__logo">Clearer</p>
+        <a href="/home" class="app-header__logo">Clearer</a>
 
         <div class="app-header__menus">
 
@@ -39,7 +39,7 @@
                 @component('components.dropdown')
 
                     @slot('label')
-                        <img class="avatar" src="{{ Auth::user()->currentTeam->photo_url }}" />
+                        <img class="avatar--sm" src="{{ Auth::user()->currentTeam->photo_url }}" />
                         {{ Auth::user()->currentTeam->name }}
                     @endslot
 
@@ -51,7 +51,7 @@
                                 {{ $team->name }}
                             </a>
                         @endforeach
-                        <a href="#" class="dropdown__menu-item">
+                        <a href="/settings/teams" class="dropdown__menu-item">
                             <i class="material-icons">people</i>
                             Create Team
                         </a>
@@ -62,7 +62,7 @@
                 @component('components.dropdown')
 
                     @slot('label')
-                        <img class="avatar" src="{{ Auth::user()->photo_url }}" />
+                        <img class="avatar--sm" src="{{ Auth::user()->photo_url }}" />
                         {{ Auth::user()->name }}
                     @endslot
 
@@ -90,15 +90,15 @@
     <div v-cloak>
 
         <!-- Main Content -->
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
 
         <!-- Application Level Modals -->
         @if (Auth::check())
-            @include('spark::modals.notifications')
-            @include('spark::modals.support')
-            @include('spark::modals.session-expired')
+            {{-- @include('spark::modals.notifications') --}}
+            {{-- @include('spark::modals.support') --}}
+            {{-- @include('spark::modals.session-expired') --}}
         @endif
     </div>
 

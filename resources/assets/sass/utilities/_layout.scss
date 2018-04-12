@@ -1,0 +1,17 @@
+[v-cloak] {
+    display: none;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content--primary {
+    flex: 2;
+}
+
+.content--secondary {
+    flex: 1;
+    margin-left: 3rem;
+}

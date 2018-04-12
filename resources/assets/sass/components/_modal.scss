@@ -1,0 +1,49 @@
+.modal {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 9998;
+
+    &__content {
+        @extend .box-shadow--far;
+        background: $white;
+        max-width: 800px;
+        position: relative;
+        width: 90%;
+        z-index: 1;
+    }
+
+    &__header {
+        align-items: center;
+        background: $secondary;
+        color: $white;
+        display: flex;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+
+        .button {
+            margin-left: auto;
+        }
+    }
+
+    &__body {
+        color: $black;
+        padding: 2rem;
+    }
+
+    &__overlay {
+        background: rgba(darken($primary, 35%), .5);
+        height: 100vh;
+        left: 0;
+        top: 0;
+        position: fixed;
+        width: 100vw;
+    }
+}

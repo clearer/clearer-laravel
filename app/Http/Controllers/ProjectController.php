@@ -24,7 +24,8 @@ class ProjectController extends Controller
     }
     //
 
-    public function index($teamSlug, Request $request) {
+    public function index($teamSlug, Request $request) 
+    {
 
         $user = Auth::user();
 
@@ -43,7 +44,8 @@ class ProjectController extends Controller
         return view('project.index', compact(['projects', 'upcoming', 'recent']));
     }
 
-    public function show(Project $project) {
+    public function show(Project $project) 
+    {
         return view('project.show', compact(['project']));
     }
 
@@ -70,8 +72,14 @@ class ProjectController extends Controller
         return redirect()->route('project.show', [$project]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+
+        $validateData = $request->validate([
+            'title' => 'bail|required|max:255',
+            'description' => 'required'
+        ]);
+        
         $user               = Auth::user();
         $project            = new Project;
         $project->title     = request('title');

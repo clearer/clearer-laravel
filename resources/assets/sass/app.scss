@@ -1,8 +1,16 @@
 // @import "./spark/spark";
-@import "./../../../vendor/laravel/spark-aurelius/resources/assets/sass/spark";
+// @import "./../../../vendor/laravel/spark-aurelius/resources/assets/sass/spark";
 
 @import 'utilities/main';
 @import 'components/main';
+
+body {
+    background: linear-gradient(45deg, $secondary, $primary);
+}
+
+main {
+    padding: 3rem 2rem;
+}
 
 
 .icon {

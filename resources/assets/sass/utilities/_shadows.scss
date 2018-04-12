@@ -1,0 +1,13 @@
+$shadowColor: rgba(50,50,50,.7);
+
+.box-shadow {
+    box-shadow: 0px 10px 13px -7px $shadowColor;
+}
+
+.box-shadow--far {
+    box-shadow: 0px 15px 13px -7px $shadowColor;
+}
+
+.box-shadow--close {
+    box-shadow: 0px 5px 13px -7px $shadowColor;
+}
