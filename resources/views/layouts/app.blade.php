@@ -30,7 +30,7 @@
     <div id="spark-app">
 
     <header class="app-header">
-        <p class="app-header__logo">Clearer</p>
+        <a href="/home" class="app-header__logo">Clearer</a>
 
         <div class="app-header__menus">
 
@@ -96,9 +96,9 @@
 
         <!-- Application Level Modals -->
         @if (Auth::check())
-            @include('spark::modals.notifications')
-            @include('spark::modals.support')
-            @include('spark::modals.session-expired')
+            {{-- @include('spark::modals.notifications') --}}
+            {{-- @include('spark::modals.support') --}}
+            {{-- @include('spark::modals.session-expired') --}}
         @endif
     </div>
 

@@ -19,7 +19,8 @@ require('spark-bootstrap');
 require('./components/bootstrap');
 
 Vue.component('dropdown', require('./components/Dropdown.vue'));
-Vue.component('edit', require('./components/EditComponent.vue'));
+Vue.component('edit', require('./components/EditComponent.vue')); // may be redundant
+Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('votes', require('./components/Votes.vue'));
 
 

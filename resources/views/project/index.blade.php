@@ -6,6 +6,7 @@
 
 <div class="content--primary">
 
+    
     @component('components.widget')
 
         @slot('title')
@@ -13,10 +14,27 @@
         @endslot
 
         @slot('headerActions')
-            <a href="/project/create" class="button">
-                <i class="material-icons">add</i>
-                Create a Project
-            </a>
+
+            @component('components.modal', ['isOpen' => $errors->any() ? true : false ])
+
+                @slot('button')
+                    <a href="javascript: void;" class="button">
+                        <i class="material-icons">add</i>
+                        Create a Project
+                    </a>
+                @endslot
+
+                @slot('header')
+
+                <h1>Create a Project</h1>
+                @endslot
+
+                @slot('content')
+                    @include('project.create')
+                @endslot
+
+            @endcomponent
+            
         @endslot
 
         @slot('nav')
@@ -186,15 +204,9 @@
                                 @endforeach
                                 </div>
 
-
-
-
-
                             @endif
 
                         @endisset
-
-                        <a class="btn btn-primary mt-4" href="/project/create">Add a Project</a>
 
                         </div>
                     </div>

@@ -12,10 +12,10 @@
         color: $white;
         display: flex;
         padding: 1rem 2rem;
+    }
 
-        .button {
-            margin-left: auto;
-        }
+    &__header-actions {
+        margin-left: auto;
     }
 
     &__title {

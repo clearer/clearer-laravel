@@ -4,7 +4,9 @@
         <h2 class="widget__title">{{ $title }}</h2>
         
         @isset($headerActions)
-            {{ $headerActions }}
+            <div class="widget__header-actions">
+                {{ $headerActions }}
+            </div>
         @endisset
     </div>
 

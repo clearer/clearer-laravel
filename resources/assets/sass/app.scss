@@ -4,9 +4,11 @@
 @import 'utilities/main';
 @import 'components/main';
 
-main {
+body {
     background: linear-gradient(45deg, $secondary, $primary);
-    min-height: 100vh;
+}
+
+main {
     padding: 3rem 2rem;
 }
 

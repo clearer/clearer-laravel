@@ -4,6 +4,7 @@
 .slide-down-leave-active {
   animation: slide-down .15s linear reverse;
 }
+
 @keyframes slide-down {
   0% {
     opacity: 0;
@@ -12,5 +13,21 @@
   100% {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+.fade-in-enter-active {
+  animation: fade-in .15s linear;
+}
+.fade-in-leave-active {
+  animation: fade-in .15s linear reverse;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

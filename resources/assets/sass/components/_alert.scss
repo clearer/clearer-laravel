@@ -1,0 +1,15 @@
+.alert {
+    border: 1px solid $muted;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+
+    li + li {
+        margin-top: 1rem;
+    }
+}
+
+.alert--danger {
+    background: lighten($accent, 35%);
+    border: 1px solid $accent;
+}

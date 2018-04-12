@@ -1,9 +1,12 @@
 .button {
     align-items: center;
     background: $primary;
+    border: none;
     border-radius: 3px;
     color: $white;
+    cursor: pointer;
     display: flex;
+    font-size: 1rem;
     padding: .5rem .75rem;
     transition: all .3s;
 
@@ -13,5 +16,20 @@
 
     &:hover {
         background: lighten($primary, 5%);
+    }
+
+    &--small {
+        font-size: .9rem;
+        padding: .4rem .6rem;
+    }
+    
+
+    &--dark {
+        @extend .button;
+        background: darken($secondary, 15%);
+
+        &:hover {
+            background: darken($secondary, 10%);
+        }
     }
 }

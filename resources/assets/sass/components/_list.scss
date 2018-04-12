@@ -1,10 +1,15 @@
 .list {
+
+    a.list__item:hover {
+        background: lighten($muted, 10%);
+    }
     
     &__item {
         align-items: center;
         color: $black;
         display: flex;
         padding: 1rem 2rem;
+        transition: background .3s;
 
         img, .material-icons {
             margin-right: .5rem;
