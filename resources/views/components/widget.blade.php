@@ -1,7 +1,8 @@
 <div class="widget">
 
+    @isset($title)
     <div class="widget__header">
-        <h2 class="widget__title">{{ $title }}</h2>
+            <h2 class="widget__title">{{ $title }}</h2>
         
         @isset($headerActions)
             <div class="widget__header-actions">
@@ -9,6 +10,7 @@
             </div>
         @endisset
     </div>
+    @endisset
 
     @isset($nav)
     <div class="widget__nav">
