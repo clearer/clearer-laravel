@@ -54,7 +54,7 @@
                 <div class="list">
                     @foreach($projects as $project)
                     <a class="list__item list__item--new" href="/project/{{ $project->id }}">
-                        <h5>{{ $project->title }}</h5>
+                        <h4>{{ $project->title }}</h4>
                         <div class="list__item-tools">
                             <img class="avatar--sm" src="{{ $project->user->photo_url }}" />
                         </div>

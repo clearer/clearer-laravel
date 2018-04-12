@@ -49,14 +49,6 @@ class ProjectController extends Controller
         return view('project.show', compact(['project']));
     }
 
-    public function create()
-    {
-        $user           = Auth::user();
-        $currentTeam    = $user->currentTeam;
-
-        return view('project.create', [$currentTeam]);
-    }
-
     public function edit(Project $project)
     {
         return view('project.edit', compact('project'));

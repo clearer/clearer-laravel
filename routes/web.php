@@ -30,11 +30,6 @@ Route::get('/{team_slug}/projects', [
     'uses' => 'ProjectController@index'
 ]);
 
-Route::get('/project/create', [
-    'as'    => 'project.create',
-    'uses'  => 'ProjectController@create'
-]);
-
 Route::get('/project/{project}', [ 
     'as' => 'project.show',
     'uses' => 'ProjectController@show'
@@ -57,13 +52,7 @@ Route::put('/project/{project}', [
 
 
 
-
-Route::get('/project/{project}/question/create', [
-    'as'    => 'question.create',
-    'uses'  => 'QuestionController@create'
-]);
-
-Route::post('/question', [
+Route::post('/project/{project}/question', [
     'as'    => 'question.store',
     'uses'  => 'QuestionController@store'
 ]);

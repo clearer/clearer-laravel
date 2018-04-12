@@ -41,5 +41,9 @@
         align-items: center;
         display: flex;
         margin-left: auto;
+
+        img, .material-icons {
+            margin-left: 1rem;
+        }
     }
 }

@@ -25,11 +25,6 @@ class QuestionController extends Controller
         return view('question.show', compact(['question']));
     }
 
-    public function create(Project $project)
-    {
-        return view('question.create', compact(['project']));
-    }
-
     public function edit(Question $question)
     {
 
@@ -45,16 +40,23 @@ class QuestionController extends Controller
         return redirect()->route('question.show', [$question]);
     }
 
-    public function store(Project $project)
+    public function store(Request $request, Project $project)
     {
-       $question = new Question;
-       $question->title = request('question');
-       $question->description = request('description');
-       $question->due_date = request('due_date');
-       $question->user_id = Auth::user()->id;
-       $question->project_id = $project->id;
-       $question->team_id = request('team_id');
-       $question->save();
-       return redirect()->route('project.show', [$project]);
+        $validateData = $request->validate([
+            'question'      => 'bail|required|max:255',
+            'description'   => 'required',
+            'due_date'      => 'required'
+        ]);
+        
+        $question = new Question;
+        $question->title = request('question');
+        $question->description = request('description');
+        $question->due_date = request('due_date');
+        $question->user_id = Auth::user()->id;
+        $question->project_id = $project->id;
+        $question->team_id = Auth::user()->currentTeam->id;
+        $question->save();
+
+        return redirect()->route('project.show', [$project]);
     }
 }

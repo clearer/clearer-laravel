@@ -2,69 +2,97 @@
 
 @section('content')
 
+<div class="content">
 
-<div class="row justify-content-center">
-    <div class="col-11 col-md-9">
+    <div class="content--primary">
 
-        <div class="list-group">
-            <a href="/{{ $project->team->slug }}/projects" class="list-group-item text-dark">
-                @svg('people', 'mr-2')
-                {{ $project->team->name }}
-            </a>
-        </div>
-        <div class="card card-default">
-            <div class="card-header">
-                <div class="d-flex">
-                    <h6 class="d-flex">
-                        @svg('project', 'mr-2')
-                        Project
-                    </h6>
-                    <div class="d-flex ml-auto">
-                        <img src="{{ $project->user->photo_url }}" class="avatar rounded-circle mr-2" />
-                        {{ $project->user->name }}
-                        @if ($project->user_id == Auth::id())
-                            <a href="/project/{{ $project->id }}/edit">
-                                @svg('pencil', 'ml-4 mr-2')
-                                Edit
-                            </a>
-                        @endif
+        @component('components.widget')
+
+            @slot('title')
+                Questions
+            @endslot
+
+            @slot('headerActions')
+
+                @component('components.modal', ['isOpen' => $errors->any() ? true : false ])
+
+                    @slot('button')
+                        <button class="button--dark">
+                            <i class="material-icons">add</i>
+                            Add a Question
+                        </button>
+                    @endslot
+
+                    @slot('header')
+                        Create a New Question
+                    @endslot
+
+                    @slot('content')
+                        @include('question.create')
+                    @endslot
+
+                @endcomponent
+
+            @endslot
+
+            @slot('nav')
+                <a href="#">Latest Activity</a>
+                <a href="#">Decisions Due</a>
+                <a href="#">Alphabetical</a>
+                <a href="#">Archived</a>
+            @endslot
+
+            @slot('content')
+
+                @if($project->questions->isEmpty())
+
+                    <h3 class="p-8">{{ __("This project doesn't have any questions, add one!") }}</h3>
+
+                @else
+
+                    <div class="list">
+                        @foreach($project->questions as $question)
+                        <a class="list__item list__item--new" href="/question/{{ $question->id }}">
+                            <h4>{{ $question->title }}</h4>
+                            <div class="list__item-tools">
+                                <i class="material-icons">av_timer</i> {{ $question->due_date->diffForHumans() }}
+                                <img class="avatar--sm" src="{{ $question->user->photo_url }}" />
+                            </div>
+                        </a>
+                        @endforeach
                     </div>
-                </div>
-            <div class="col-lg-10 py-4 px-0">
-                <div class="card-title"><h3>{{ $project->title }}</h3></div>
-                <div class="card-subtitle text-muted my-4">{{ $project->description }}</div>
-            </div>
-            </div>
-            <div class="card-body bg-dark">
-            
-                @isset($project->questions)
-            
-            
-                    @if($project->questions->isEmpty())
-                    
-                        <p class="text-white">No questions! Add one!</p>
-                    
-                    @else
-                        <h6 class="d-flex text-white fill-white mb-4">
-                            @svg('question-mark', 'mr-2')
-                            Questions
-                        </h6>
-                        <div class="list-group">
-                            @foreach($project->questions as $question) 
-                                <a class="list-group-item list-group-item-action bg-light d-flex flex-column flex-lg-row" href="/question/{{ $question->id }}">
-                                    <div class="col-12 col-lg-9 p-0">{{ $question->title }}</div>
-                                    <div class="col-12 col-lg-3 p-0 d-flex justify-content-lg-end mt-3 mt-lg-0">
-                                        @svg('clock', 'mr-2') {{ $question->due_date->diffForHumans() }}
-                                    </div>
-                                </a>
-                            @endforeach
-                        </div>
-                    @endif
-                    <a class="btn btn-primary mt-3" href="/project/{{ $project->id }}/question/create">Add a Question</a>
-                @endisset
 
-            </div>
-        </div>
+                @endif
+            @endslot
+
+        @endcomponent
+
     </div>
+
+    <div class="content--secondary">
+
+        @component('components.widget')
+            @slot('content')
+                <div class="p-8">
+
+                    <h5 class="mb-4">Project</h5>
+                    <h2>{{ $project->title }}</h2>
+
+                    <h5 class="mt-8 mb-4">Project Lead</h5>
+                    <div class="flex-align">
+                        <img src="{{ $project->user->photo_url }}" class="avatar--sm mr-2" />
+                        <p>{{ $project->user->name }}</p>
+                    </div>
+
+                    <h5 class="mt-8 mb-4">Description</h5>
+                    {{ $project->description }}
+
+                </div>
+            @endslot
+        @endcomponent
+
+    </div>
+    
 </div>
+
 @endsection
