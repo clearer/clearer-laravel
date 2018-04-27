@@ -6,24 +6,12 @@
 
 body {
     background: linear-gradient(45deg, $secondary, $primary);
+    min-height: 100vh;
 }
 
 main {
     padding: 3rem 2rem;
 }
-
-
-.icon {
-    transform: scale(1.75);
-
-    &.active {
-        fill: red;
-    }
-}
-
-.text-small { font-size: .8em; }
-
-.fill-white { fill: #ffffff; }
 
 .cards {
     display: flex;

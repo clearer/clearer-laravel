@@ -83,7 +83,7 @@
             <div class="list">
                 @foreach($upcoming as $question)
                     <a class="list__item" href="/question/{{ $question->id }}">
-                        <h5>{{ $question->title }}</h5>
+                        <h4>{{ $question->title }}</h4>
                         <div class="list__item-tools">
                             <i class="material-icons">update</i>
                             <small>{{ $question->due_date->toFormattedDateString() }}</small>
@@ -113,28 +113,28 @@
             <div class="list">
                 <a class="list__item">
                     <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h5>Josh Mobley</h5>
+                    <h4>Josh Mobley</h4>
                     <div class="list__item-tools">
                         430
                     </div>  
                 </a>
                 <a class="list__item">
                     <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h5>Josh Mobley</h5>
+                    <h4>Josh Mobley</h4>
                     <div class="list__item-tools">
                         430
                     </div>  
                 </a>
                 <a class="list__item">
                     <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h5>Josh Mobley</h5>
+                    <h4>Josh Mobley</h4>
                     <div class="list__item-tools">
                         430
                     </div>  
                 </a>
                 <a class="list__item">
                     <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h5>Josh Mobley</h5>
+                    <h4>Josh Mobley</h4>
                     <div class="list__item-tools">
                         430
                     </div>  

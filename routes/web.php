@@ -102,7 +102,7 @@ Route::post('/idea/{idea}/comment', [
     'uses'  => 'CommentController@store'
 ]);
 
-Route::post('/idea', [
+Route::post('question/{question}/idea', [
     'as'    => 'idea.store',
     'uses'  => 'IdeaController@store'
 ]);

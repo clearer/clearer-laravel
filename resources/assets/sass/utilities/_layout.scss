@@ -21,6 +21,19 @@
     display: flex;
 }
 
+.half-and-half {
+    display: flex;
+    justify-content: space-between;
+
+    > * {
+        flex-basis: 50%;
+
+        + * {
+            padding-left: 4rem;
+        }
+    }
+}
+
 .m-1 {  margin: .25rem;  }
 .m-2 {  margin: .5rem;   }
 .m-3 {  margin: .75rem;  }

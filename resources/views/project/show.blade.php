@@ -72,11 +72,15 @@
     <div class="content--secondary">
 
         @component('components.widget')
+
+            @slot('title')
+                Project Info
+            @endslot
+
             @slot('content')
                 <div class="p-8">
 
-                    <h5 class="mb-4">Project</h5>
-                    <h2>{{ $project->title }}</h2>
+                    <h1>{{ $project->title }}</h1>
 
                     <h5 class="mt-8 mb-4">Project Lead</h5>
                     <div class="flex-align">

@@ -236,6 +236,24 @@ table {
   display: flex;
 }
 
+.half-and-half {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.half-and-half > * {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+.half-and-half > * + * {
+  padding-left: 4rem;
+}
+
 .m-1 {
   margin: .25rem;
 }
@@ -836,7 +854,8 @@ table {
   padding-right: 4rem;
 }
 
-.box-shadow {
+.box-shadow,
+.cards .card:hover {
   -webkit-box-shadow: 0px 10px 13px -7px rgba(50, 50, 50, 0.7);
           box-shadow: 0px 10px 13px -7px rgba(50, 50, 50, 0.7);
 }
@@ -848,7 +867,8 @@ table {
           box-shadow: 0px 15px 13px -7px rgba(50, 50, 50, 0.7);
 }
 
-.box-shadow--close {
+.box-shadow--close,
+.cards .card {
   -webkit-box-shadow: 0px 5px 13px -7px rgba(50, 50, 50, 0.7);
           box-shadow: 0px 5px 13px -7px rgba(50, 50, 50, 0.7);
 }
@@ -887,6 +907,14 @@ h5 {
   letter-spacing: 1px;
   line-height: 1.4rem;
   text-transform: uppercase;
+}
+
+p {
+  line-height: 1.4rem;
+}
+
+p + p {
+  margin-top: 1rem;
 }
 
 .alert {
@@ -967,6 +995,18 @@ h5 {
   background: #335687;
 }
 
+.cards {
+  padding: 1rem;
+}
+
+.cards .card {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 1rem;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
 .dropdown {
   position: relative;
 }
@@ -1044,6 +1084,8 @@ h5 {
 .form__group textarea {
   border: 1px solid #dddddd;
   border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 1rem;
   padding: .25rem .5rem;
   width: 100%;
@@ -1260,27 +1302,11 @@ h5 {
 
 body {
   background: linear-gradient(45deg, #416dac, #4fcabb);
+  min-height: 100vh;
 }
 
 main {
   padding: 3rem 2rem;
-}
-
-.icon {
-  -webkit-transform: scale(1.75);
-          transform: scale(1.75);
-}
-
-.icon.active {
-  fill: red;
-}
-
-.text-small {
-  font-size: .8em;
-}
-
-.fill-white {
-  fill: #ffffff;
 }
 
 .cards {
