@@ -1,7 +1,112 @@
-@extends('spark::layouts.app')
+@extends('layouts.app')
 
 @section('content')
 
+<div class="content">
+
+    <div class="content--primary">
+
+        @component('components.widget')
+
+            @slot('title')
+                Ideas
+            @endslot
+
+            @slot('headerActions')
+            
+                @component('components.modal', [ 'isOpen' => false ])
+
+                    @slot('button')
+                        <button class="button--dark">
+                            <i class="material-icons">add</i>
+                            Add an Idea
+                        </button>
+                    @endslot
+
+                    @slot('header')
+                        Create a New Idea
+                    @endslot
+
+                    @slot('content')
+                        @include('idea.create')
+                    @endslot
+
+
+                @endcomponent
+
+            @endslot
+
+            @slot('nav')
+                <a href="#">Most Likes</a>
+                <a href="#">Post Date</a>
+                <a href="#">Acted On</a>
+            @endslot
+
+            @slot('content')
+                
+                @if($question->ideas->isEmpty())
+
+                    <h3 class="p-8">{{ __("This question doesn't have any ideas, add one!") }}</h3>
+
+                @else
+
+                    <div class="cards">
+                        @foreach($question->ideas as $idea)
+                        <a class="card" href="/idea/{{ $idea->id }}">
+                            <h4>{{ $idea->title }}</h4>
+                            <votes
+                                :votes="{{ $idea->votes }}"
+                                :ideaId="{{ $idea->id }}">
+                            </votes>
+                        </a>
+                        @endforeach
+                    </div>
+
+                @endif
+
+            @endslot
+
+        @endcomponent
+
+    </div>
+
+    <div class="content--secondary">
+
+        @component('components.widget')
+
+            @slot('title')
+                Project Info
+            @endslot
+
+            @slot('content')
+                <div class="p-8">
+
+                    <h1>{{ $question->title }}</h1>
+
+                    <h5 class="mt-8 mb-4">Asked By</h5>
+                    <div class="flex-align">
+                        <img src="{{ $question->user->photo_url }}" class="avatar--sm mr-2" />
+                        <p>{{ $question->user->name }}</p>
+                    </div>
+
+                    <h5 class="mt-8 mb-4">Decision Due</h5>
+                    <p>{{ date('mm d, Y', strtotime($question->due_date)) }}</p>
+
+                    <h5 class="mt-8 mb-4">In Project</h5>
+                    {{ $question->project->title }}
+
+                    <h5 class="mt-8 mb-4">Description</h5>
+                    {{ $question->description }}
+
+                </div>
+            @endslot
+        @endcomponent
+
+    </div>
+
+</div>
+
+{{--
 
 <div class="row justify-content-center">
     <div class="col-11 col-md-9">
@@ -86,4 +191,6 @@
         </div>
     </div>
 </div>
+
+--}}    
 @endsection

@@ -1,0 +1,16 @@
+.cards {
+    padding: 1rem;
+
+    .card {
+        @extend .box-shadow--close;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 1rem;
+        transition: all .3s;
+
+        &:hover {
+            @extend .box-shadow;
+        }
+    }
+
+}

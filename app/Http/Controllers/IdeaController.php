@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Idea;
 use App\Question;
+use App\Project;
 use Auth;
 
 class IdeaController extends Controller
@@ -45,7 +46,7 @@ class IdeaController extends Controller
         return redirect()->route('idea.show', [$idea]);
     }
 
-    public function store(Question $question)
+    public function store(Request $request, Question $question)
     {
 
         $idea = new Idea;  
@@ -54,7 +55,7 @@ class IdeaController extends Controller
         $idea->project_id = $question->project->id;
         $idea->question_id = $question->id;
         $idea->user_id = Auth::user()->id;
-        $idea->team_id = request('team_id');
+        $idea->team_id = Auth::user()->currentTeam->id;
         $idea->save();
 
         return redirect()->route('question.show', [$question->id]);

@@ -35,3 +35,11 @@ h5 {
     line-height: 1.4rem;
     text-transform: uppercase;
 }
+
+p {
+    line-height: 1.4rem;
+}
+
+p + p {
+    margin-top: 1rem;
+}
