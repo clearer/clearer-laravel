@@ -57,25 +57,10 @@ class QuestionController extends Controller
             ] 
         );
 
-        //dd($req);
-
         $project
             ->questions()
             ->create( $req );
             
-
-
-       /*$question = new Question();
-
-        $question->title = request('title');
-        $question->description = request('description');
-        $question->due_date = request('due_date');
-        $question->user_id = Auth::user()->id;
-        $question->project_id = $project->id;
-        $question->team_id = Auth::user()->currentTeam->id;
-        $question->save();
-        */
-
         return redirect()->route('project.show', [$project]);
     }
 }

@@ -1007,6 +1007,15 @@ p + p {
   transition: all .3s;
 }
 
+.cards .card svg {
+  height: 12px;
+  width: 12px;
+}
+
+.cards .card .active {
+  fill: red;
+}
+
 .dropdown {
   position: relative;
 }
