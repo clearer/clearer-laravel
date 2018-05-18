@@ -48,15 +48,22 @@ class IdeaController extends Controller
 
     public function store(Request $request, Question $question)
     {
+        $req = array_merge(
+            $request->except(['_token']),
+            [
+                'team_id' => Auth::user()->currentTeam->id,
+                'user_id' => Auth::user()->id
+            ]
+        );
 
+        $question->ideas()->create($req);
+
+        /*
         $idea = new Idea;  
         $idea->title = request('title');
         $idea->description = request('description');
-        $idea->project_id = $question->project->id;
-        $idea->question_id = $question->id;
-        $idea->user_id = Auth::user()->id;
-        $idea->team_id = Auth::user()->currentTeam->id;
         $idea->save();
+        */
 
         return redirect()->route('question.show', [$question->id]);
     }

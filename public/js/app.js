@@ -2006,9 +2006,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             pending: false,
-            voteCount: this.votes,
-            voteStatus: this.hasVoted,
-            voteId: this.hasVoted ? this.hasVoted.id : undefined
+            voteCount: this.votes.length,
+            voteStatus: this.hasVoted ? true : false,
+            voteId: this.hasVoted
         };
     },
 
@@ -2016,8 +2016,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         toggleVote: function toggleVote() {
             this.pending = true;
             if (this.voteStatus) {
+                console.log('destroy vote');
+                console.log(this.voteId);
                 this.destroyVote();
             } else {
+                console.log('create vote');
                 this.createVote();
             }
         },
@@ -57358,7 +57361,7 @@ var render = function() {
       ? _c(
           "svg",
           {
-            staticClass: "mr-2 a-spin",
+            staticClass: "mr-2 a-spin icon",
             attrs: {
               xmlns: "http://www.w3.org/2000/svg",
               width: "8",

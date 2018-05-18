@@ -14,6 +14,7 @@ class Question extends Model
     protected $fillable = [
         'title',
         'description',
+        'due_date',
         'project_id',
         'team_id',
         'user_id'

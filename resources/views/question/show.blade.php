@@ -52,13 +52,16 @@
 
                     <div class="cards">
                         @foreach($question->ideas as $idea)
-                        <a class="card" href="/idea/{{ $idea->id }}">
-                            <h4>{{ $idea->title }}</h4>
+                        <div class="card">
+                            <a href="/idea/{{ $idea->id }}">
+                                <h4>{{ $idea->title }}</h4>
+                            </a>
                             <votes
                                 :votes="{{ $idea->votes }}"
-                                :ideaId="{{ $idea->id }}">
+                                :idea-id="{{ $idea->id }}"
+                                :has-voted="{{ $idea->isVoted($idea->id) ? $idea->isVoted($idea->id)->id : 0 }}">
                             </votes>
-                        </a>
+                        </div>
                         @endforeach
                     </div>
 
@@ -90,7 +93,7 @@
                     </div>
 
                     <h5 class="mt-8 mb-4">Decision Due</h5>
-                    <p>{{ date('mm d, Y', strtotime($question->due_date)) }}</p>
+                    <p>{{ date('m d, Y', strtotime($question->due_date)) }}</p>
 
                     <h5 class="mt-8 mb-4">In Project</h5>
                     {{ $question->project->title }}
