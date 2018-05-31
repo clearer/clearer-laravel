@@ -38,11 +38,15 @@ class VoteController extends Controller
     public function store(Request $request)
     {
         //
+        $req = array_merge(
+            $request->except(['_token']),
+            [
+                'user_id' => Auth::user()->id
+            ]
+        );
 
-        $vote = new Vote();
-        $vote->idea_id = request('idea_id');
-        $vote->user_id = Auth::user()->id;
-        $vote->save();
+        $vote = Vote::create($req);
+        $vote->idea->user->addPoints(5);
 
         return response($vote->id, 200)->header('Content-Type', 'text/plain');
     }
@@ -90,6 +94,8 @@ class VoteController extends Controller
     public function destroy($id)
     {
         //
+        $vote = Vote::find($id);
+        $vote->idea->user->addPoints(-5);
         Vote::destroy($id);
 
         return response('Vote deleted', 200)->header('Content-Type', 'text/plain');

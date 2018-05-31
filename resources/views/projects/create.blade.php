@@ -1,7 +1,7 @@
 @component('components.errors')
 @endcomponent
 
-<form method="POST" class="form" action="/project">
+<form method="POST" class="form" action="/projects">
 
     {{ csrf_field() }}
 

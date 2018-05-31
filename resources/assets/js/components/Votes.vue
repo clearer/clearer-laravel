@@ -43,7 +43,7 @@ export default {
         createVote: function() {
             
             axios
-                .post('/vote', {
+                .post('/votes', {
                     idea_id: this.ideaId
                 })
                 .then( res => {
@@ -60,7 +60,7 @@ export default {
         destroyVote: function() {
 
             axios
-                .delete('/vote/' + this.voteId, {
+                .delete('/votes/' + this.voteId, {
                     idea_id: this.ideaId
                 })
                 .then( res => {  

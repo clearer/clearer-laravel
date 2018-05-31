@@ -1120,6 +1120,7 @@ p + p {
   color: #FFFFFF;
   font-size: 1.6rem;
   letter-spacing: 1px;
+  padding: 1.25rem 0;
   -webkit-transition: color .3s;
   transition: color .3s;
 }
@@ -1307,6 +1308,16 @@ p + p {
 .widget__content {
   background: #FFFFFF;
   border-radius: 0 0 3px 3px;
+}
+
+.widget.muted .widget__header {
+  background: #aaa;
+  padding: .75rem 1.5rem;
+}
+
+.widget.muted .widget__nav a {
+  background: #ccc;
+  padding: .5rem;
 }
 
 body {

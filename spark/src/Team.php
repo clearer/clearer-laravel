@@ -75,7 +75,7 @@ class Team extends Model
     public function users()
     {
         return $this->belongsToMany(
-            Spark::userModel(), 'team_users', 'team_id', 'user_id'
+            Spark::userModel(), 'teams_users', 'team_id', 'user_id'
         )->withPivot('role');
     }
 

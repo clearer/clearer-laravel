@@ -46,7 +46,7 @@
                     @slot('menu')
 
                         @foreach(Auth::user()->teams as $team)
-                            <a href="/{{ $team->slug }}/projects" class="dropdown__menu-item">
+                            <a href="/settings/{{ Spark::teamsPrefix() }}/{{ $team->id }}/switch" class="dropdown__menu-item">
                                 <img class="avatar--sm" src="{{ $team->photo_url }}" />
                                 {{ $team->name }}
                             </a>
@@ -84,8 +84,6 @@
         </div>
             
     </header>
-
-
 
     <div v-cloak>
 

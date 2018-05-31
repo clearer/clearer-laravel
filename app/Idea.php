@@ -28,7 +28,7 @@ class Idea extends Model
         return $this->hasMany('App\Comment');
     }
 
-    public function owner()
+    public function user()
     {
         return $this->belongsTo('App\User');
     }

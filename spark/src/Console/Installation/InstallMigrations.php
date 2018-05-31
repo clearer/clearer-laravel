@@ -96,7 +96,7 @@ class InstallMigrations
             'migrations/create_invoices_table',
             'migrations/create_notifications_table',
             'migrations/create_teams_table',
-            'migrations/create_team_users_table',
+            'migrations/create_teams_users_table',
             'migrations/create_invitations_table',
         ];
     }
@@ -118,7 +118,7 @@ class InstallMigrations
             'migrations/create_invoices_table',
             'migrations/create_notifications_table',
             'migrations/braintree/create_teams_table',
-            'migrations/create_team_users_table',
+            'migrations/create__table',
             'migrations/create_invitations_table',
         ];
     }

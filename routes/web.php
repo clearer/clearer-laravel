@@ -25,94 +25,44 @@ Route::get('/home', [
 
 // PROJECT ROUTES
 
-Route::get('/{team_slug}/projects', [
-    'as' => 'project.index',
-    'uses' => 'ProjectController@index'
+Route::resource('projects', 'ProjectController')->only([
+    'index',
+    'show',
+    'store',
+    'edit',
+    'update',
+    'create'
 ]);
 
-Route::get('/project/{project}', [ 
-    'as' => 'project.show',
-    'uses' => 'ProjectController@show'
+// QUESTION ROUTES
+
+Route::resource('questions', 'QuestionController')->only([
+    'show',
+    'store',
+    'edit',
+    'update'
 ]);
 
-Route::post('/project', [
-    'as'    => 'project.store',
-    'uses'  => 'ProjectController@store'
+// IDEAS ROUTES
+
+Route::resource('ideas', 'IdeaController')->only([
+    'create',
+    'show',
+    'edit',
+    'update',
+    'store'
 ]);
 
-Route::get('/project/{project}/edit', [
-    'as'    => 'project.edit',
-    'uses'  => 'ProjectController@edit'
+// COMMENT ROUTES
+
+Route::resource('comments', 'CommentController')->only([
+    'create',
+    'store'
 ]);
 
-Route::put('/project/{project}', [
-    'as'    => 'project.update',
-    'uses'  => 'ProjectController@update'
-]);
+// VOTE ROUTES
 
-
-
-Route::post('/project/{project}/question', [
-    'as'    => 'question.store',
-    'uses'  => 'QuestionController@store'
-]);
-
-Route::get('/question/{question}', [
-    'as'    => 'question.show',
-    'uses'  => 'QuestionController@show'
-]);
-
-Route::get('/question/{question}/edit', [
-    'as'    => 'question.edit',
-    'uses'  => 'QuestionController@edit'
-]);
-
-Route::put('/question/{question}', [
-    'as'    => 'question.update',
-    'uses'  => 'QuestionController@update'
-]);
-
-Route::get('/question/{question}/idea/create', [
-    'as'    => 'idea.create',
-    'uses'  => 'IdeaController@create'
-]);
-
-Route::get('/idea/{idea}', [
-    'as'    => 'idea.show',
-    'uses'  => 'IdeaController@show'
-]);
-
-Route::get('/idea/{idea}/edit', [
-    'as'    => 'idea.edit',
-    'uses'  => 'IdeaController@edit'
-]);
-
-Route::put('/idea/{idea}', [
-    'as'    => 'idea.update',
-    'uses'  => 'IdeaController@update'
-]);
-
-Route::get('/idea/{idea}/comment/create', [
-    'as'    => 'comment.create',
-    'uses'  => 'CommentController@create'
-]);
-
-Route::post('/idea/{idea}/comment', [
-    'as'    => 'comment.store',
-    'uses'  => 'CommentController@store'
-]);
-
-Route::post('question/{question}/idea', [
-    'as'    => 'idea.store',
-    'uses'  => 'IdeaController@store'
-]);
-
-Route::post('/vote', [
-    'as' => 'vote.store',
-    'uses' => 'VoteController@store'
-]);
-
-Route::delete('/vote/{vote}', [
-    'as' => 'vote.destroy',
-    'uses' => 'VoteController@destroy'
+Route::resource('votes', 'VoteController')->only([
+    'store',
+    'destroy'
 ]);

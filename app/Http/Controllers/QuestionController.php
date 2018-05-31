@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Question;
 use App\Project;
+use Illuminate\Support\Facades\DB;
+
 
 class QuestionController extends Controller
 {
@@ -22,8 +24,7 @@ class QuestionController extends Controller
     //
     public function show(Question $question)
     {
-        $ideas = $question->ideas;
-        return view('question.show', compact(['question', 'ideas']));
+        return view('questions.show', ['question' => $question]);
     }
 
     public function edit(Question $question)
@@ -41,7 +42,7 @@ class QuestionController extends Controller
         return redirect()->route('question.show', [$question]);
     }
 
-    public function store(Request $request, Project $project)
+    public function store(Request $request, Question $question)
     {
         $validateData = $request->validate([
             'title'         => 'bail|required|max:255',
@@ -57,10 +58,12 @@ class QuestionController extends Controller
             ] 
         );
 
-        $project
-            ->questions()
-            ->create( $req );
+        $question = Question::create($req);
+        
+        $question->user->addPoints(10);
+
+        $project = DB::table('projects')->where('id', $request->project_id)->first();
             
-        return redirect()->route('project.show', [$project]);
+        return redirect()->route('projects.show', [$request->project_id]);
     }
 }

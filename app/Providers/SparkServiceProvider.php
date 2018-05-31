@@ -50,8 +50,6 @@ class SparkServiceProvider extends ServiceProvider
      */
     public function booted()
     {
-
-        Spark::identifyTeamsByPath();
         
         Spark::useStripe()->noCardUpFront()->teamTrialDays(30);
 

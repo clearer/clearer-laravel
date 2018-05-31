@@ -30,7 +30,7 @@
                 @endslot
 
                 @slot('content')
-                    @include('project.create')
+                    @include('projects.create')
                 @endslot
 
             @endcomponent
@@ -53,7 +53,7 @@
 
                 <div class="list">
                     @foreach($projects as $project)
-                    <a class="list__item list__item--new" href="/project/{{ $project->id }}">
+                    <a class="list__item list__item--new" href="/projects/{{ $project->id }}">
                         <h4>{{ $project->title }}</h4>
                         <div class="list__item-tools">
                             <img class="avatar--sm" src="{{ $project->user->photo_url }}" />
@@ -111,34 +111,15 @@
 
         @slot('content')
             <div class="list">
+                @foreach(Auth::user()->currentTeam->users as $user)
                 <a class="list__item">
-                    <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h4>Josh Mobley</h4>
-                    <div class="list__item-tools">
-                        430
-                    </div>  
-                </a>
-                <a class="list__item">
-                    <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h4>Josh Mobley</h4>
-                    <div class="list__item-tools">
-                        430
-                    </div>  
-                </a>
-                <a class="list__item">
-                    <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h4>Josh Mobley</h4>
-                    <div class="list__item-tools">
-                        430
-                    </div>  
-                </a>
-                <a class="list__item">
-                    <img class="avatar--sm" src="//placehold.it/40x40" />
-                    <h4>Josh Mobley</h4>
-                    <div class="list__item-tools">
-                        430
-                    </div>  
-                </a>
+                        <img class="avatar--sm" src="{{ $user->photo_url }}" />
+                        <h4>{{ $user->name }}</h4>
+                        <div class="list__item-tools">
+                            {{ $user->points }}
+                        </div>  
+                    </a>
+                @endforeach
             </div>
         @endslot
 

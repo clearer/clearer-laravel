@@ -24,12 +24,12 @@ class ProjectController extends Controller
     }
     //
 
-    public function index($teamSlug, Request $request) 
+    public function index(Request $request) 
     {
 
         $user = Auth::user();
+        $team = $user->currentTeam();
 
-        $team = Team::where('slug', $teamSlug)->first();
         $request->user()->switchToTeam($team);
         
         $projects = Project::where('team_id', $team->id)
@@ -41,17 +41,17 @@ class ProjectController extends Controller
             ->where('due_date', '>=', Carbon::now())
             ->get();
        
-        return view('project.index', compact(['projects', 'upcoming', 'recent']));
+        return view('projects.index', compact(['projects', 'upcoming', 'recent']));
     }
 
     public function show(Project $project) 
     {
-        return view('project.show', compact(['project']));
+        return view('projects.show', ['project' => $project]);
     }
 
     public function edit(Project $project)
     {
-        return view('project.edit', compact('project'));
+        return view('projects.edit', compact('project'));
     }
 
     public function update(Request $request, Project $project)
@@ -61,7 +61,7 @@ class ProjectController extends Controller
         $project->description   = request('description'); 
         $project->save();
 
-        return redirect()->route('project.show', [$project]);
+        return back();
     }
 
     public function store(Request $request)
@@ -80,6 +80,6 @@ class ProjectController extends Controller
         $project->team_id   = $user->currentTeam->id;
         $project->save();
 
-        return redirect()->route('project.index', [$user->currentTeam->slug]);
+        return back();
     }
 }

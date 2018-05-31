@@ -1,4 +1,4 @@
-<div class="widget">
+<div class="widget {{ isset($muted) ? 'muted' : '' }}">
 
     @isset($title)
     <div class="widget__header">

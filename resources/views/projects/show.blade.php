@@ -26,9 +26,9 @@
                     @slot('header')
                         Create a New Question
                     @endslot
-
+                        
                     @slot('content')
-                        @include('question.create')
+                        @include('questions.create')
                     @endslot
 
                 @endcomponent
@@ -52,7 +52,7 @@
 
                     <div class="list">
                         @foreach($project->questions as $question)
-                        <a class="list__item list__item--new" href="/question/{{ $question->id }}">
+                        <a class="list__item list__item--new" href="/questions/{{ $question->id }}">
                             <h4>{{ $question->title }}</h4>
                             <div class="list__item-tools">
                                 <i class="material-icons">av_timer</i> {{ $question->due_date->diffForHumans() }}

@@ -2027,7 +2027,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         createVote: function createVote() {
             var _this = this;
 
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/vote', {
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/votes', {
                 idea_id: this.ideaId
             }).then(function (res) {
                 console.log(res);
@@ -2042,7 +2042,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         destroyVote: function destroyVote() {
             var _this2 = this;
 
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('/vote/' + this.voteId, {
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.delete('/votes/' + this.voteId, {
                 idea_id: this.ideaId
             }).then(function (res) {
                 console.log(res);

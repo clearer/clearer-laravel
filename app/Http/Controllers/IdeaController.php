@@ -43,10 +43,10 @@ class IdeaController extends Controller
         $idea->description = request('description');
         $idea->save();
 
-        return redirect()->route('idea.show', [$idea]);
+        return back();
     }
 
-    public function store(Request $request, Question $question)
+    public function store(Request $request)
     {
         $req = array_merge(
             $request->except(['_token']),
@@ -56,15 +56,9 @@ class IdeaController extends Controller
             ]
         );
 
-        $question->ideas()->create($req);
+        $idea = Idea::create($req);
+        $idea->user->addPoints(10);
 
-        /*
-        $idea = new Idea;  
-        $idea->title = request('title');
-        $idea->description = request('description');
-        $idea->save();
-        */
-
-        return redirect()->route('question.show', [$question->id]);
+        return back();
     }
 }

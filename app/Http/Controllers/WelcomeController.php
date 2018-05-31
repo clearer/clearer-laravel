@@ -24,6 +24,6 @@ class WelcomeController extends Controller
 
         $user = Auth::user();
         $currentTeam = $user->currentTeam;
-        return redirect()->route('project.index', [$currentTeam->slug]);
+        return redirect()->route('projects.index', [$currentTeam->slug]);
     }
 }

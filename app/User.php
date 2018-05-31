@@ -17,7 +17,8 @@ class User extends SparkUser
      */
     protected $fillable = [
         'name',
-        'email'
+        'email',
+        'points'
     ];
 
     /**
@@ -75,6 +76,10 @@ class User extends SparkUser
 
     public function votes()
     {
-        return $this->hasMany('App\Vote', 'user_id');
+        return $this->hasMany('App\Vote');
+    }
+
+    public function addPoints($pointValue) {
+        return $this->increment('points', $pointValue);
     }
 }

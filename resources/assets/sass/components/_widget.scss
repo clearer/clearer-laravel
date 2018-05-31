@@ -45,3 +45,17 @@
         border-radius: 0 0 3px 3px;
     }
 }
+
+.widget.muted {
+    .widget {
+        &__header {
+            background: #aaa;
+            padding: .75rem 1.5rem;
+        }
+
+        &__nav a {
+            background: #ccc;
+            padding: .5rem;
+        }
+    }
+}

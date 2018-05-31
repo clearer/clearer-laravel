@@ -12,7 +12,7 @@ class CreateTeamUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('team_users', function (Blueprint $table) {
+        Schema::create('teams_users', function (Blueprint $table) {
             $table->integer('team_id');
             $table->integer('user_id');
             $table->string('role', 20);
@@ -28,6 +28,6 @@ class CreateTeamUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('team_users');
+        Schema::drop('teams_users');
     }
 }

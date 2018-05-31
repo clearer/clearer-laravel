@@ -3,7 +3,7 @@
 
 <div class="half-and-half">
 
-<form method="POST" class="form" action="/project/{{ $project->id }}/question">
+<form method="POST" class="form" action="{{ route('questions.store') }}">
 
     {{ csrf_field() }}
 
@@ -21,6 +21,8 @@
         <label for="due_date">Due Date</label>
         <input type="date" class="form-control" id="due_date" name="due_date" value="{{ old('due_date') }}" />
     </div>
+
+    <input type="hidden" name="project_id" value="{{ $project->id }}" />
 
     <button class="button" type="submit">
         <i class="material-icons">save</i>
@@ -47,9 +49,6 @@
     <p>How does failing to answer this question inhibit progress?</p>
 
     <p>Does this question depend on answering another one? </p>
-
-
-
 
 </div>
 
