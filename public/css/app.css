@@ -952,7 +952,8 @@ p + p {
 }
 
 .button,
-.button--dark {
+.button--dark,
+.button--inline {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -972,13 +973,16 @@ p + p {
 
 .button img,
 .button--dark img,
+.button--inline img,
 .button .material-icons,
-.button--dark .material-icons {
+.button--dark .material-icons,
+.button--inline .material-icons {
   margin-right: .5rem;
 }
 
 .button:hover,
-.button--dark:hover {
+.button--dark:hover,
+.button--inline:hover {
   background: #62d0c2;
 }
 
@@ -993,6 +997,10 @@ p + p {
 
 .button--dark:hover {
   background: #335687;
+}
+
+.button--inline {
+  display: inline-block;
 }
 
 .cards {
@@ -1098,6 +1106,11 @@ p + p {
   font-size: 1rem;
   padding: .25rem .5rem;
   width: 100%;
+}
+
+.form__group input[type=checkbox],
+.form__group textarea[type=checkbox] {
+  width: auto;
 }
 
 .form__group + .form__group {
@@ -1236,7 +1249,8 @@ p + p {
 }
 
 .modal__header .button,
-.modal__header .button--dark {
+.modal__header .button--dark,
+.modal__header .button--inline {
   margin-left: auto;
 }
 

@@ -32,4 +32,9 @@
             background: darken($secondary, 10%);
         }
     }
+
+    &--inline {
+        @extend .button;
+        display: inline-block;
+    }
 }
