@@ -116,7 +116,7 @@
                         <img class="avatar--sm" src="{{ $user->photo_url }}" />
                         <h4>{{ $user->name }}</h4>
                         <div class="list__item-tools">
-                            {{ $user->points }}
+                            {{ $user->points($user->currentTeam->id) }}
                         </div>  
                     </a>
                 @endforeach

@@ -4,6 +4,7 @@ namespace App;
 
 use Laravel\Spark\CanJoinTeams;
 use Laravel\Spark\User as SparkUser;
+use Illuminate\Support\Facades\DB;
 
 class User extends SparkUser
 {
@@ -64,6 +65,10 @@ class User extends SparkUser
         return $this->hasMany('App\Idea');
     }
 
+    public function points($team_id) {
+        return DB::table('points')->where('team_id', $team_id)->sum('points');
+    }
+
     public function projects()
     {
         return $this->hasMany('App\Project');
@@ -77,9 +82,5 @@ class User extends SparkUser
     public function votes()
     {
         return $this->hasMany('App\Vote');
-    }
-
-    public function addPoints($pointValue) {
-        return $this->increment('points', $pointValue);
     }
 }
