@@ -7,7 +7,6 @@
 @section('content')
 <spark-register-stripe inline-template>
     <div>
-        <div class="spark-screen container">
             <!-- Common Register Form Contents -->
             @include('spark::auth.register-common')
 
@@ -128,7 +127,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
         <!-- Plan Features Modal -->
