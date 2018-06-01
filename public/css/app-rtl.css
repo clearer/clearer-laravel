@@ -1066,6 +1066,8 @@ p + p {
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 1rem;
   -webkit-transition: all .3s;
   transition: all .3s;

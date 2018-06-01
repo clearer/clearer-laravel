@@ -6,6 +6,7 @@
         background: #fff;
         border: 1px solid #ccc;
         border-radius: 3px;
+        box-sizing: border-box;
         padding: 1rem;
         transition: all .3s;
 
@@ -23,7 +24,7 @@
         }
 
         &--large {
-            min-width: 600px;
+            min-width: 600px    ;
         }
     }
 
