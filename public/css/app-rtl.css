@@ -989,7 +989,9 @@ p + p {
 .button,
 .button--dark,
 .button--inline,
-.button--inverse {
+.button--inverse,
+.button--inverse-secondary,
+.button--inverse-error {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1014,17 +1016,23 @@ p + p {
 .button--dark img,
 .button--inline img,
 .button--inverse img,
+.button--inverse-secondary img,
+.button--inverse-error img,
 .button .material-icons,
 .button--dark .material-icons,
 .button--inline .material-icons,
-.button--inverse .material-icons {
+.button--inverse .material-icons,
+.button--inverse-secondary .material-icons,
+.button--inverse-error .material-icons {
   margin-left: .5rem;
 }
 
 .button:hover,
 .button--dark:hover,
 .button--inline:hover,
-.button--inverse:hover {
+.button--inverse:hover,
+.button--inverse-secondary:hover,
+.button--inverse-error:hover {
   background: #62d0c2;
 }
 
@@ -1045,13 +1053,25 @@ p + p {
   display: inline-block;
 }
 
-.button--inverse {
+.button--inverse,
+.button--inverse-secondary,
+.button--inverse-error {
   background: none;
   color: #4fcabb;
 }
 
-.button--inverse:hover {
+.button--inverse:hover,
+.button--inverse-secondary:hover,
+.button--inverse-error:hover {
   background: #dddddd;
+}
+
+.button--inverse-secondary {
+  color: #416dac;
+}
+
+.button--inverse-error {
+  color: #FC4A1A;
 }
 
 .button--error {
@@ -1320,7 +1340,9 @@ p + p {
 .modal__header .button,
 .modal__header .button--dark,
 .modal__header .button--inline,
-.modal__header .button--inverse {
+.modal__header .button--inverse,
+.modal__header .button--inverse-secondary,
+.modal__header .button--inverse-error {
   margin-right: auto;
 }
 
@@ -1349,7 +1371,7 @@ table thead {
 
 table th,
 table td {
-  padding: .5rem 0 .5rem 1rem;
+  padding: .5rem;
   text-align: right;
   vertical-align: middle;
 }

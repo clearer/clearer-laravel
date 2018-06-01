@@ -20,7 +20,6 @@ class ProjectController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('teamSubscribed');
     }
     //
 
@@ -31,7 +30,6 @@ class ProjectController extends Controller
         $team = $user->currentTeam();
         
         $projects = Project::where('team_id', $team->id)
-            ->where('user_id', $user->id)
             ->get();
 
         $upcoming = Question::where('team_id', $team->id)
@@ -65,18 +63,31 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 
+        $user = Auth::user();
+        $team = $user->currentTeam;
+
+        $projectMax = $team->sparkPlan()->attributes['max_projects'];
+        $projectCurrent = $team->projects->count();
+        $projectsRemain = $projectMax - $projectCurrent;
+
+        if($projectsRemain < 1) {
+            return back()->withErrors(['msg' => 'You\'ve reached the project limits on your team\'s subscription. <a href="#">Upgrade your plan</a>']);
+        }
+
         $validateData = $request->validate([
             'title' => 'bail|required|max:255',
             'description' => 'required'
         ]);
         
-        $user               = Auth::user();
+        $user               = $user;
         $project            = new Project;
         $project->title     = request('title');
         $project->description   = request('description');
         $project->user_id  = $user->id;
         $project->team_id   = $user->currentTeam->id;
         $project->save();
+
+        $team = Team::find($user->currentTeam->id);
 
         return back();
     }

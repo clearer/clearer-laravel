@@ -1,5 +1,5 @@
 <spark-update-profile-photo :user="user" inline-template>
-    <div class="container" v-if="user">
+    <div v-if="user">
         <h3 class="mb-4">{{__('Profile Photo')}}</h3>
 
             <div class="alert alert--danger" v-if="form.errors.has('photo')">

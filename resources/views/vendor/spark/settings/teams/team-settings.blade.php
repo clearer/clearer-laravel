@@ -10,8 +10,8 @@
 
 @section('content')
 <spark-team-settings :user="user" :team-id="{{ $team->id }}" inline-template>
-    <div class="spark-screen container">
-        <div class="row">
+    <div class="cards">
+        <div class="card">
             <!-- Tabs -->
             <div class="col-md-3 spark-settings-tabs">
                 <aside>

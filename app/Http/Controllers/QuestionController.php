@@ -19,7 +19,6 @@ class QuestionController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('teamSubscribed');
     }
     //
     public function show(Question $question)
@@ -59,8 +58,6 @@ class QuestionController extends Controller
         );
 
         $question = Question::create($req);
-        
-        $question->user->addPoints(10);
 
         $project = DB::table('projects')->where('id', $request->project_id)->first();
             

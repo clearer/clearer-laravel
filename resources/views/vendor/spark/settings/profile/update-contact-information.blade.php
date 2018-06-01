@@ -1,6 +1,6 @@
 <spark-update-contact-information :user="user" inline-template>
-    <div class="container">
-        <h3 class="mb-4">{{__('Contact Information')}}</h3>
+    <div>
+        <h3 class="mt-8 mb-4">{{__('Contact Information')}}</h3>
 
         <div class="card-body">
             <!-- Success Message -->

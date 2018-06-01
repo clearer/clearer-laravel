@@ -17,6 +17,29 @@
 
             @include('spark::settings.teams')
 
+            @if (Spark::canBillCustomers())
+                            @if (Spark::hasPaidPlans())
+                            <!-- Subscription -->
+                                <div role="tabcard" class="tab-pane" id="subscription">
+                                    <div v-if="user">
+                                        @include('spark::settings.subscription')
+                                    </div>
+                                </div>
+                            @endif
+
+                        <!-- Payment Method -->
+                            <div role="tabcard" class="tab-pane" id="payment-method">
+                                <div v-if="user">
+                                    @include('spark::settings.payment-method')
+                                </div>
+                            </div>
+
+                            <!-- Invoices -->
+                            <div role="tabcard" class="tab-pane" id="invoices">
+                                @include('spark::settings.invoices')
+                            </div>
+                        @endif
+
 
         {{--
     <spark-settings :user="user" :teams="teams" inline-template>

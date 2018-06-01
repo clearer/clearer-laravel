@@ -1,13 +1,13 @@
 <spark-create-team inline-template>
     <div>
-        <h3 class="mb-4">{{__('teams.create_team')}}</h3>
+        <h5 class="mb-4">{{__('teams.create_team')}}</h5>
 
         <div class="card-body">
             <form role="form" v-if="canCreateMoreTeams">
                 <!-- Name -->
                 <div class="form__group">
-                    <label>{{__('teams.team_name')}}</label>
-                    <input type="text" id="create-team-name" name="name" v-model="form.name" :class="{'is-invalid': form.errors.has('name')}">
+                    <!--<label>{{__('teams.team_name')}}</label>-->
+                    <input type="text" id="create-team-name" name="name" v-model="form.name" placeholder="Team Name" :class="{'is-invalid': form.errors.has('name')}">
 
                     <span class="alert alert--warning" v-if="hasTeamLimit">
                         <?php echo __('teams.you_have_x_teams_remaining', ['teamCount' => '{{ remainingTeams }}']); ?>

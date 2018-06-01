@@ -50,18 +50,52 @@ class SparkServiceProvider extends ServiceProvider
      */
     public function booted()
     {
-        
-        Spark::useStripe()->noCardUpFront()->teamTrialDays(30);
 
-        Spark::freeTeamPlan()
+        Spark::useStripe()->noCardUpFront();
+
+        Spark::freeTeamPlan('Free')
+            ->attributes([
+                'max_projects' => 1
+            ])
             ->features([
                 'First', 'Second', 'Third'
             ]);
 
-        Spark::TeamPlan('Basic', 'provider-id-1')
+        Spark::TeamPlan('Tiny', 'provider-id-1')
+            ->price(5)
+            ->attributes([
+                'max_projects' => 3
+            ])
+            ->features([
+                'First', 'Second', 'Third'
+            ]);
+
+        Spark::TeamPlan('Small', 'provider-id-1')
             ->price(10)
+            ->attributes([
+                'max_projects' => 10
+            ])
             ->features([
                 'First', 'Second', 'Third'
             ]);
+
+        Spark::TeamPlan('Medium', 'provider-id-1')
+            ->price(10)
+            ->attributes([
+                'max_projects' => 25
+            ])
+            ->features([
+                'First', 'Second', 'Third'
+            ]);
+
+        Spark::TeamPlan('Large', 'provider-id-1')
+            ->price(10)
+            ->attributes([
+                'max_projects' => 50
+            ])
+            ->features([
+                'First', 'Second', 'Third'
+            ]);
+        
     }
 }

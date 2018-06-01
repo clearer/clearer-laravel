@@ -53,8 +53,8 @@
         </div>
 
         <!-- Update Team Member Modal -->
-        <div class="modal" id="modal-update-team-member" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="updatingTeamMember">
+        <div class="modal" id="modal-update-team-member" tabindex="-1" role="dialog" v-if="updatingTeamMember">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -98,8 +98,8 @@
         </div>
 
         <!-- Delete Team Member Modal -->
-        <div class="modal" id="modal-delete-member" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="deletingTeamMember">
+        <div class="modal" id="modal-delete-member" tabindex="-1" role="dialog" v-if="deletingTeamMember">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">

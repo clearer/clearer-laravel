@@ -1,9 +1,8 @@
 <spark-pending-invitations inline-template>
-    <div>
-        <div class="card card-default" v-if="invitations.length > 0">
-            <div class="card-header">{{__('Pending Invitations')}}</div>
+    <div v-if="invitations.length > 0">
+            <h5 class="mb-2 mt-8">{{__('Pending Invitations')}}</h5>
 
-            <div class="table-responsive">
+            <div class="table-responsive" >
                 <table class="table table-valign-middle mb-0">
                     <thead>
                         <th>{{ __('teams.team') }}</th>
@@ -20,19 +19,18 @@
                             </td>
 
                             <!-- Accept Button -->
-                            <td class="td-fit">
-                                <button class="btn btn-outline-success" @click="accept(invitation)">
+                            <td class="align--right">
+                                <button class="button button--inline button--inverse" @click="accept(invitation)">
                                     <i class="fa fa-check"></i>
                                 </button>
 
-                                <button class="btn btn-outline-danger" @click="reject(invitation)">
-                                <i class="fa fa-times"></i>
+                                <button class="button button--inline button--inverse-error" @click="reject(invitation)">
+                                    <i class="fa fa-times"></i>
                                 </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
     </div>
 </spark-pending-invitations>

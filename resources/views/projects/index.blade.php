@@ -5,7 +5,6 @@
 <div class="content">
 
 <div class="content--primary">
-
     
     @component('components.widget')
 
@@ -25,8 +24,7 @@
                 @endslot
 
                 @slot('header')
-
-                <h1>Create a Project</h1>
+                    Create a Project
                 @endslot
 
                 @slot('content')

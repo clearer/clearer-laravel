@@ -47,6 +47,16 @@
         &:hover {
             background: $muted;
         }
+
+        &-secondary {
+            @extend .button--inverse;
+            color: $secondary;
+        }
+
+        &-error {
+            @extend .button--inverse;
+            color: $accent;
+        }
     }
 
     &--error {

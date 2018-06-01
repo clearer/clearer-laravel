@@ -1,6 +1,6 @@
 <spark-current-teams :user="user" :teams="teams" inline-template>
-    <div class="mt-8">
-            <h5>{{__('teams.current_teams')}}</h5>
+    <div>
+            <h5 class="mb-2 mt-8">{{__('teams.current_teams')}}</h5>
 
             <div class="table-responsive">
                 <table class="table table-valign-middle mt-2 mb-0">
@@ -41,23 +41,28 @@
                                     <i class="fa fa-cog"></i>
                                 </a>
 
-                                <button class="btn btn-outline-warning" @click="approveLeavingTeam(team)"
-                                        data-toggle="tooltip" title="{{__('teams.leave_team')}}"
-                                        v-if="user.id !== team.owner_id">
-                                    <i class="fa fa-sign-out"></i>
+                                <button 
+                                    class="button button--inline button--inverse-secondary" 
+                                    @click="approveLeavingTeam(team)"
+                                    data-toggle="tooltip" 
+                                    title="{{__('teams.leave_team')}}"
+                                    v-if="user.id !== team.owner_id">
+                                        <i class="fa fa-sign-out"></i>
                                 </button>
 
                                 @if (Spark::createsAdditionalTeams())
-                                    <a href="javascript:void(0);" class="button--inline button--inverse button--error" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
-                                        <i class="fa fa-times"></i>
-                                    </a>
+                                    <button 
+                                        class="button--inline button--inverse button--error" 
+                                        @click="approveTeamDelete(team)" 
+                                        v-if="user.id === team.owner_id">
+                                            <i class="fa fa-times"></i>
+                                    </button>
                                 @endif
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
 
         <!-- Leave Team Modal -->
         <div class="modal" id="modal-leave-team" tabindex="-1" role="dialog" v-if="leavingTeam">

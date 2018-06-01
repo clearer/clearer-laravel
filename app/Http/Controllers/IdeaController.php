@@ -19,7 +19,6 @@ class IdeaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('teamSubscribed');
     }
     //
     public function show(Idea $idea) 
