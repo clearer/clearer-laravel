@@ -47,7 +47,7 @@
 
             @if($projects->isEmpty())
 
-                {{ __("This team doesn't have any projects, get started!") }}
+                <p class="p-8">{{ __("This team doesn't have any projects, add one to get started!") }}</p>
 
             @else
 
