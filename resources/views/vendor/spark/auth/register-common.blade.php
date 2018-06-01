@@ -1,5 +1,7 @@
-<div class="row justify-content-center">
-    <div class="col-lg-8">
+<div class="content cards flex-center">
+
+    <div class="card">
+
         <!-- Coupon -->
         <div class="alert alert-success" v-if="coupon">
             <?php echo __('The coupon :value discount will be applied to your subscription!', ['value' => '{{ discount }}']); ?>
@@ -19,43 +21,34 @@
         <div class="alert alert-danger" v-if="invalidInvitation">
             {{__('Whoops! This invitation code is invalid.')}}
         </div>
-    </div>
-</div>
 
-<!-- Plan Selection -->
-<div class="row justify-content-center" v-if="paidPlans.length > 0">
-    <div class="col-lg-8">
-        <div class="card card-default">
-            <div class="card-header">
-                <div class="float-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-                    {{__('Subscription')}}
-                </div>
+        <!-- Plan Selection -->
+        <div class="row justify-content-center" v-if="paidPlans.length > 0">
 
-                <!-- Interval Selector Button Group -->
-                <div class="float-right">
-                    <div class="btn-group btn-group-sm" v-if="hasMonthlyAndYearlyPlans" style="padding-top: 2px;">
-                        <!-- Monthly Plans -->
-                        <button type="button" class="btn btn-light"
-                                @click="showMonthlyPlans"
-                                :class="{'active': showingMonthlyPlans}">
-
-                            {{__('Monthly')}}
-                        </button>
-
-                        <!-- Yearly Plans -->
-                        <button type="button" class="btn btn-light"
-                                @click="showYearlyPlans"
-                                :class="{'active': showingYearlyPlans}">
-
-                            {{__('Yearly')}}
-                        </button>
-                    </div>
-                </div>
-
-                <div class="clearfix"></div>
+            <div class="float-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
+                {{__('Subscription')}}
             </div>
 
-            <div class="table-responsive">
+            <!-- Interval Selector Button Group -->
+
+            <div class="btn-group btn-group-sm" v-if="hasMonthlyAndYearlyPlans" style="padding-top: 2px;">
+                
+                <!-- Monthly Plans -->
+                <button type="button" class="btn btn-light"
+                        @click="showMonthlyPlans"
+                        :class="{'active': showingMonthlyPlans}">
+
+                    {{__('Monthly')}}
+                </button>
+
+                <!-- Yearly Plans -->
+                <button type="button" class="btn btn-light"
+                        @click="showYearlyPlans"
+                        :class="{'active': showingYearlyPlans}">
+
+                    {{__('Yearly')}}
+                </button>
+
                 <!-- Plan Error Message - In General Will Never Be Shown -->
                 <div class="alert alert-danger m-4" v-if="registerForm.errors.has('plan')">
                     @{{ registerForm.errors.get('plan') }}
@@ -115,37 +108,28 @@
                 </table>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Basic Profile -->
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <div class="card card-default">
-            <div class="card-header">
-                <span v-if="paidPlans.length > 0">
-                    {{__('Profile')}}
-                </span>
+        <!-- Basic Profile -->
+        <span v-if="paidPlans.length > 0">
+            {{__('Profile')}}
+        </span>
 
-                <span v-else>
-                    {{__('Register')}}
-                </span>
-            </div>
+        <h2 class="mb-8" v-else>
+            {{__('Register')}}
+        </h2>
 
-            <div class="card-body">
-                <!-- Generic Error Message -->
-                <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
-                    @{{ registerForm.errors.get('form') }}
-                </div>
-
-                <!-- Invitation Code Error -->
-                <div class="alert alert-danger" v-if="registerForm.errors.has('invitation')">
-                    @{{ registerForm.errors.get('invitation') }}
-                </div>
-
-                <!-- Registration Form -->
-                @include('spark::auth.register-common-form')
-            </div>
+        <!-- Generic Error Message -->
+        <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
+            @{{ registerForm.errors.get('form') }}
         </div>
+
+        <!-- Invitation Code Error -->
+        <div class="alert alert-danger" v-if="registerForm.errors.has('invitation')">
+            @{{ registerForm.errors.get('invitation') }}
+        </div>
+
+        <!-- Registration Form -->
+         @include('spark::auth.register-common-form')
+
     </div>
 </div>

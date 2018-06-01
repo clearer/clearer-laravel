@@ -9,7 +9,7 @@ trait ManagesAppOptions
      *
      * @var string
      */
-    public static $afterLoginRedirectTo = '/home';
+    public static $afterLoginRedirectTo = '/';
 
     /**
      * Indicates if we should show the team switcher.

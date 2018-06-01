@@ -236,6 +236,21 @@ table {
   display: flex;
 }
 
+.flex-center {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.flex-justify {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .half-and-half {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -920,6 +935,7 @@ p + p {
 .alert {
   border: 1px solid #dddddd;
   border-radius: 3px;
+  display: block;
   margin-bottom: 2rem;
   padding: 1rem;
 }
@@ -930,6 +946,11 @@ p + p {
 
 .alert--danger {
   background: #fed5ca;
+  border: 1px solid #FC4A1A;
+}
+
+.alert--warning {
+  background: #fdf8de;
   border: 1px solid #FC4A1A;
 }
 
@@ -966,6 +987,9 @@ p + p {
   display: -ms-flexbox;
   display: flex;
   font-size: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: .5rem .75rem;
   -webkit-transition: all .3s;
   transition: all .3s;
@@ -1008,6 +1032,7 @@ p + p {
 }
 
 .cards .card {
+  background: #fff;
   border: 1px solid #ccc;
   border-radius: 3px;
   padding: 1rem;
@@ -1104,6 +1129,7 @@ p + p {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 1rem;
+  margin: 0 0 .5rem;
   padding: .25rem .5rem;
   width: 100%;
 }
@@ -1114,7 +1140,7 @@ p + p {
 }
 
 .form__group + .form__group {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .app-header {

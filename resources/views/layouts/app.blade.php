@@ -30,7 +30,7 @@
     <div id="spark-app">
 
     <header class="app-header">
-        <a href="/home" class="app-header__logo">Clearer</a>
+        <a href="/" class="app-header__logo">Clearer</a>
 
         <div class="app-header__menus">
 

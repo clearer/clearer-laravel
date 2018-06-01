@@ -18,11 +18,6 @@ Route::get('/', [
     'uses'  => 'WelcomeController@show'
 ]);
 
-Route::get('/home', [
-    'as'    => 'welcome.index',
-    'uses'  => 'WelcomeController@index'
-]);
-
 // PROJECT ROUTES
 
 Route::resource('projects', 'ProjectController')->only([

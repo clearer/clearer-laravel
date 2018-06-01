@@ -132,7 +132,7 @@
         </div>
 
         <!-- Plan Features Modal -->
-        @include('spark::modals.plan-details')
+        {{-- @include('spark::modals.plan-details') --}}
     </div>
 </spark-register-stripe>
 @endsection

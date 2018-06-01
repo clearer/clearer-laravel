@@ -39,7 +39,7 @@ class QuestionController extends Controller
         $question->description  = request('description');
         $question->due_date     = request('due_date');
         $question->save();
-        return redirect()->route('question.show', [$question]);
+        return redirect()->route('questions.show', [$question]);
     }
 
     public function store(Request $request, Question $question)

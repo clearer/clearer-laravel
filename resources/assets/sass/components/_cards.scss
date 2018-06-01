@@ -3,6 +3,7 @@
 
     .card {
         @extend .box-shadow--close;
+        background: #fff;
         border: 1px solid #ccc;
         border-radius: 3px;
         padding: 1rem;

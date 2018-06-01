@@ -21,6 +21,15 @@
     display: flex;
 }
 
+.flex-center {
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.flex-justify {
+    justify-content: center;
+}
+
 .half-and-half {
     display: flex;
     justify-content: space-between;

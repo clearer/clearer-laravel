@@ -1,6 +1,7 @@
 .alert {
     border: 1px solid $muted;
     border-radius: 3px;
+    display: block;
     margin-bottom: 2rem;
     padding: 1rem;
 
@@ -11,5 +12,10 @@
 
 .alert--danger {
     background: lighten($accent, 35%);
+    border: 1px solid $accent;
+}
+
+.alert--warning {
+    background: lighten($warning, 35%);
     border: 1px solid $accent;
 }

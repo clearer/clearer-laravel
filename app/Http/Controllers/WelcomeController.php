@@ -14,16 +14,6 @@ class WelcomeController extends Controller
      */
     public function show()
     {
-        return view('welcome.show');
-    }
-
-    public function index()
-    {
-        $this->middleware('auth');
-        $this->middleware('teamSubscribed');
-
-        $user = Auth::user();
-        $currentTeam = $user->currentTeam;
-        return redirect()->route('projects.index', [$currentTeam->slug]);
+        return redirect()->route('projects.index');
     }
 }
