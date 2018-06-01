@@ -66,7 +66,7 @@ class User extends SparkUser
     }
 
     public function points($team_id) {
-        return DB::table('points')->where('team_id', $team_id)->sum('points');
+        return DB::table('points')->where('user_id', $this->id)->where('team_id', $team_id)->sum('points');
     }
 
     public function projects()

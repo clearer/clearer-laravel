@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vote;
 use App\Question;
+use App\Points;
 use Auth;
 
 class VoteController extends Controller
@@ -46,7 +47,15 @@ class VoteController extends Controller
         );
 
         $vote = Vote::create($req);
-        $vote->idea->user->addPoints(5);
+        
+        $teamID = $vote->idea->team->id;
+        $userID = $vote->idea->user->id;
+        
+        Points::create([
+            'team_id' => $teamID,
+            'user_id' => $userID,
+            'points'  => 5
+        ]);
 
         return response($vote->id, 200)->header('Content-Type', 'text/plain');
     }
@@ -95,7 +104,16 @@ class VoteController extends Controller
     {
         //
         $vote = Vote::find($id);
-        $vote->idea->user->addPoints(-5);
+
+        $teamID = $vote->idea->team->id;
+        $userID = $vote->idea->user->id;
+
+        Points::create([
+            'team_id' => $teamID,
+            'user_id' => $userID,
+            'points'  => -5
+        ]);
+
         Vote::destroy($id);
 
         return response('Vote deleted', 200)->header('Content-Type', 'text/plain');

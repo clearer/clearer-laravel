@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Idea;
 use App\Question;
 use App\Project;
+use App\Points;
 use Auth;
 
 class IdeaController extends Controller
@@ -48,16 +49,25 @@ class IdeaController extends Controller
 
     public function store(Request $request)
     {
+
+        $teamID = Auth::user()->currentTeam->id;
+        $userID = Auth::user()->id;
+
         $req = array_merge(
             $request->except(['_token']),
             [
-                'team_id' => Auth::user()->currentTeam->id,
-                'user_id' => Auth::user()->id
+                'team_id' => $teamID,
+                'user_id' => $userID
             ]
         );
 
         $idea = Idea::create($req);
-        $idea->user->addPoints(10);
+
+        Points::create([
+            'team_id' => $teamID,
+            'user_id' => $userID,
+            'points'  => 10
+        ]);
 
         return back();
     }
