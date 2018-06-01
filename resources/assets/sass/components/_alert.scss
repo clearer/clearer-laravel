@@ -19,3 +19,8 @@
     background: lighten($warning, 35%);
     border: 1px solid $accent;
 }
+
+.alert--success {
+    background: lighten($primary, 35%);
+    border: 1px solid $primary;
+}

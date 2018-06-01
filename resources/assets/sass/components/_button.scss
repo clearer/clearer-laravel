@@ -38,4 +38,18 @@
         @extend .button;
         display: inline-block;
     }
+
+    &--inverse {
+        @extend .button;
+        background: none;
+        color: $primary;
+
+        &:hover {
+            background: $muted;
+        }
+    }
+
+    &--error {
+        color: $accent;
+    }
 }

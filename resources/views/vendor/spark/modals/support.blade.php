@@ -1,5 +1,4 @@
 <!-- Customer Support -->
-<div class="modal fade" id="modal-support" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body p-b-none">
@@ -41,4 +40,3 @@
             </div>
         </div>
     </div>
-</div>

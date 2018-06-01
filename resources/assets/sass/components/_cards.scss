@@ -21,6 +21,10 @@
         .active {
             fill: red;
         }
+
+        &--large {
+            min-width: 600px;
+        }
     }
 
 }

@@ -81,6 +81,6 @@ class TeamController extends Controller
 
         $request->user()->switchToTeam($team);
 
-        return back();
+        return redirect()->route('projects.index');
     }
 }

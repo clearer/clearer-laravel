@@ -1,10 +1,9 @@
 <spark-current-teams :user="user" :teams="teams" inline-template>
-    <div>
-        <div class="card card-default">
-            <div class="card-header">{{__('teams.current_teams')}}</div>
+    <div class="mt-8">
+            <h5>{{__('teams.current_teams')}}</h5>
 
             <div class="table-responsive">
-                <table class="table table-valign-middle mb-0">
+                <table class="table table-valign-middle mt-2 mb-0">
                     <thead>
                         <th class="th-fit"></th>
                         <th>{{__('Name')}}</th>
@@ -15,20 +14,18 @@
                     <tbody>
                         <tr  v-for="team in teams">
                             <!-- Photo -->
-                            <td>
-                                <img :src="team.photo_url" class="spark-profile-photo">
+                            <td class="align--center">
+                                <img :src="team.photo_url" class="avatar--sm">
                             </td>
 
                             <!-- Team Name -->
                             <td>
-                                <div class="btn-table-align">
+                               
                                     @{{ team.name }}
-                                </div>
                             </td>
 
                             <!-- Owner Name -->
                             <td>
-                                <div class="btn-table-align">
                                     <span v-if="user.id == team.owner.id">
                                         {{__('You')}}
                                     </span>
@@ -36,15 +33,12 @@
                                     <span v-else>
                                         @{{ team.owner.name }}
                                     </span>
-                                </div>
                             </td>
 
                             <!-- Edit Button -->
-                            <td class="td-fit">
-                                <a :href="'/settings/{{Spark::teamsPrefix()}}/'+team.id">
-                                    <button class="btn btn-outline-primary">
-                                        <i class="fa fa-cog"></i>
-                                    </button>
+                            <td class="align--right">
+                                <a :href="'/settings/{{Spark::teamsPrefix()}}/'+team.id" class="button--inline button--inverse">
+                                    <i class="fa fa-cog"></i>
                                 </a>
 
                                 <button class="btn btn-outline-warning" @click="approveLeavingTeam(team)"
@@ -54,9 +48,9 @@
                                 </button>
 
                                 @if (Spark::createsAdditionalTeams())
-                                    <button class="btn btn-outline-danger" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
+                                    <a href="javascript:void(0);" class="button--inline button--inverse button--error" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
                                         <i class="fa fa-times"></i>
-                                    </button>
+                                    </a>
                                 @endif
                             </td>
                         </tr>
@@ -66,8 +60,8 @@
         </div>
 
         <!-- Leave Team Modal -->
-        <div class="modal" id="modal-leave-team" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="leavingTeam">
+        <div class="modal" id="modal-leave-team" tabindex="-1" role="dialog" v-if="leavingTeam">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -92,8 +86,8 @@
         </div>
 
         <!-- Delete Team Modal -->
-        <div class="modal" id="modal-delete-team" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="deletingTeam">
+        <div class="modal" id="modal-delete-team" tabindex="-1" role="dialog" v-if="deletingTeam">
+            <div class="modal__content">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -122,6 +116,5 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
 </spark-current-teams>

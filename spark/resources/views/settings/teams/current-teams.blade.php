@@ -66,8 +66,8 @@
         </div>
 
         <!-- Leave Team Modal -->
-        <div class="modal" id="modal-leave-team" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="leavingTeam">
+        <div class="modal" id="modal-leave-team" tabindex="-1" role="dialog" v-if="leavingTeam">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -92,8 +92,8 @@
         </div>
 
         <!-- Delete Team Modal -->
-        <div class="modal" id="modal-delete-team" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="deletingTeam">
+        <div class="modal" id="modal-delete-team" tabindex="-1" role="dialog" v-if="deletingTeam">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">

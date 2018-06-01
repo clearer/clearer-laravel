@@ -9,6 +9,16 @@
 @endsection
 
 @section('content')
+<div class="content cards flex-center">
+    <div class="card card--large">
+        <h2 class="mb-8">Settings</h2>
+
+            @include('spark::settings.profile')
+
+            @include('spark::settings.teams')
+
+
+        {{--
     <spark-settings :user="user" :teams="teams" inline-template>
         <div class="spark-screen container">
             <div class="row">
@@ -142,4 +152,7 @@
             </div>
         </div>
     </spark-settings>
+    --}}
+</div>
+</div>
 @endsection

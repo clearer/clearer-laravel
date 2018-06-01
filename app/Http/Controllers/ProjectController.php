@@ -29,8 +29,6 @@ class ProjectController extends Controller
 
         $user = Auth::user();
         $team = $user->currentTeam();
-
-        $request->user()->switchToTeam($team);
         
         $projects = Project::where('team_id', $team->id)
             ->where('user_id', $user->id)

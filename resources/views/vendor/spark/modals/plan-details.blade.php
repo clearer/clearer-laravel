@@ -1,5 +1,5 @@
-<div class="modal fade" id="modal-plan-details" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm">
+
+    <div class="modal__content modal-sm">
         <div class="modal-content" v-if="detailingPlan">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -23,4 +23,3 @@
             </div>
         </div>
     </div>
-</div>

@@ -1,5 +1,4 @@
 <!-- Session Expired Modal -->
-<div class="modal fade" id="modal-session-expired" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,4 +21,3 @@
             </div>
         </div>
     </div>
-</div>

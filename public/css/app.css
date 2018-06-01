@@ -220,6 +220,15 @@ table {
           flex: 2;
 }
 
+.align--center {
+  text-align: center;
+}
+
+.align--right {
+  padding-right: 0;
+  text-align: right;
+}
+
 .content--secondary {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -954,6 +963,11 @@ p + p {
   border: 1px solid #FC4A1A;
 }
 
+.alert--success {
+  background: #d8f3f0;
+  border: 1px solid #4fcabb;
+}
+
 .avatar,
 .avatar--sm,
 .avatar--xs {
@@ -974,7 +988,8 @@ p + p {
 
 .button,
 .button--dark,
-.button--inline {
+.button--inline,
+.button--inverse {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -998,15 +1013,18 @@ p + p {
 .button img,
 .button--dark img,
 .button--inline img,
+.button--inverse img,
 .button .material-icons,
 .button--dark .material-icons,
-.button--inline .material-icons {
+.button--inline .material-icons,
+.button--inverse .material-icons {
   margin-right: .5rem;
 }
 
 .button:hover,
 .button--dark:hover,
-.button--inline:hover {
+.button--inline:hover,
+.button--inverse:hover {
   background: #62d0c2;
 }
 
@@ -1025,6 +1043,19 @@ p + p {
 
 .button--inline {
   display: inline-block;
+}
+
+.button--inverse {
+  background: none;
+  color: #4fcabb;
+}
+
+.button--inverse:hover {
+  background: #dddddd;
+}
+
+.button--error {
+  color: #FC4A1A;
 }
 
 .cards {
@@ -1047,6 +1078,16 @@ p + p {
 
 .cards .card .active {
   fill: red;
+}
+
+.cards .card--large {
+  min-width: 600px;
+}
+
+.container {
+  border: 1px solid #dddddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .dropdown {
@@ -1276,7 +1317,8 @@ p + p {
 
 .modal__header .button,
 .modal__header .button--dark,
-.modal__header .button--inline {
+.modal__header .button--inline,
+.modal__header .button--inverse {
   margin-left: auto;
 }
 
@@ -1292,6 +1334,22 @@ p + p {
   top: 0;
   position: fixed;
   width: 100vw;
+}
+
+table {
+  width: 100%;
+}
+
+table thead {
+  background: #416dac;
+  color: #FFFFFF;
+}
+
+table th,
+table td {
+  padding: .5rem 1rem .5rem 0;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .widget {
