@@ -23,6 +23,10 @@ class QuestionController extends Controller
     //
     public function show(Question $question)
     {
+        if(!Auth::user()->onTeam($question->team)) {
+            abort(404);
+        }
+
         return view('questions.show', ['question' => $question]);
     }
 

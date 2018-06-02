@@ -64,6 +64,10 @@ class ProjectController extends Controller
         $user = Auth::user();
         $team = $user->currentTeam();
 
+        if(!$user->onTeam($project->team)) {
+            abort(404);
+        }
+
         $sort = $request->query('sort');
         $reverse = $request->query('reverse');
 
