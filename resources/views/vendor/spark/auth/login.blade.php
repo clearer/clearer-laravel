@@ -6,6 +6,7 @@
 
     <div class="content cards flex-center">
         <div class="card" style="background: white">
+            <div class="card__body">
             <h2 class="mb-8">Sign In</h2>
             <form role="form" method="POST" class="form" action="/login">
                 
@@ -41,13 +42,16 @@
                 <a href="{{ url('/password/reset') }}">{{__('Forgot Your Password?')}}</a>
             </form>
         </div>
+    </div>
 
         <div class="card">
+            <div class="card__body">
             <h2 class="mb-8">Need an account?</h2>
             <a href="/register" class="button--dark">
                 <i class="material-icons">create</i>
                 Register
             </a>
         </div>
+    </div>
     </div>
 @endsection
