@@ -36,22 +36,24 @@
             @endslot
 
             @slot('nav')
-                <a href="#">Latest Activity</a>
-                <a href="#">Decisions Due</a>
-                <a href="#">Alphabetical</a>
-                <a href="#">Archived</a>
+                @component('components.widget-filter', [
+                    'filters' => $filters,
+                    'sort' => $sort,
+                    'reverse' => $reverse
+                ])
+                @endcomponent
             @endslot
 
             @slot('content')
 
-                @if($project->questions->isEmpty())
+                @if($questions->isEmpty())
 
                     <h3 class="p-8">{{ __("This project doesn't have any questions, add one!") }}</h3>
 
                 @else
 
                     <div class="list">
-                        @foreach($project->questions as $question)
+                        @foreach($questions as $question)
                         <a class="list__item list__item--new" href="/questions/{{ $question->id }}">
                             <h4>{{ $question->title }}</h4>
                             <div class="list__item-tools">

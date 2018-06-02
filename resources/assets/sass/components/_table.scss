@@ -1,9 +1,14 @@
 table {
+    border: 1px solid $muted;
     width: 100%;
 
     thead {
         background: $secondary;
         color: $white;
+    }
+
+    tr:nth-child(even) {
+        background: lighten($muted, 8%);
     }
 
     th, td {

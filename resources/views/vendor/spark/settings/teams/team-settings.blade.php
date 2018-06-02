@@ -10,79 +10,52 @@
 
 @section('content')
 <spark-team-settings :user="user" :team-id="{{ $team->id }}" inline-template>
-    <div class="cards">
-        <div class="card">
-            <!-- Tabs -->
-            <div class="col-md-3 spark-settings-tabs">
-                <aside>
-                    <h3 class="nav-heading ">
+    <div class="cards flex-center">
+        <div class="card--large">
+                    <h3>
                         {{__('teams.team_settings')}}
                     </h3>
-                    <ul class="nav flex-column mb-4 ">
                         @if (Auth::user()->ownsTeam($team))
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#owner" aria-controls="owner" role="tab" data-toggle="tab">
-                                    
-                                    {{__('teams.team_profile')}}
+                                <a href="#owner" aria-controls="owner" role="tab" data-toggle="tab">
+                                   {{__('teams.team_profile')}}
                                 </a>
-                            </li>
                         @endif
 
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#membership" aria-controls="membership" role="tab" data-toggle="tab">
+                            <a href="#membership" aria-controls="membership" role="tab" data-toggle="tab">
                                 
                                 {{__('Membership')}}
                             </a>
-                        </li>
 
-                            @if (Spark::createsAdditionalTeams())
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/settings#/{{str_plural(Spark::teamsPrefix())}}">
-                                        
-                                        {{__('teams.view_all_teams')}}
-                                    </a>
-                                </li>
+                            @if (Spark::createsAdditionalTeams())   
+                                <a href="/settings#/{{str_plural(Spark::teamsPrefix())}}"> 
+                                    {{__('teams.view_all_teams')}}
+                                </a>
                             @else
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="/settings">
-                                        
-                                        {{__('Your Settings')}}
-                                    </a>
-                                </li>
+                                <a href="/settings">
+                                    {{__('Your Settings')}}
+                                </a>
                             @endif
-                    </ul>
-                </aside>
 
                 @if (Spark::canBillTeams() && Auth::user()->ownsTeam($team))
-                    <aside>
-                        <h3 class="nav-heading ">
+                    
+                        <h3>
                             {{__('teams.team_billing')}}
                         </h3>
-                        <ul class="nav flex-column mb-4 ">
+
                             @if (Spark::hasPaidTeamPlans())
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="#subscription" aria-controls="subscription" role="tab" data-toggle="tab">
+                                    <a href="#subscription" aria-controls="subscription" role="tab" data-toggle="tab">
                                         
                                         {{__('Subscription')}}
                                     </a>
-                                </li>
-
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="#payment-method" aria-controls="payment-method" role="tab" data-toggle="tab">
+                                    <a href="#payment-method" aria-controls="payment-method" role="tab" data-toggle="tab">
                                         
                                         {{__('Payment Method')}}
                                     </a>
-                                </li>
-
-                                <li class="nav-item ">
-                                    <a class="nav-link" href="#invoices" aria-controls="invoices" role="tab" data-toggle="tab">
+                                    <a href="#invoices" aria-controls="invoices" role="tab" data-toggle="tab">
                                         
                                         {{__('Invoices')}}
                                     </a>
-                                </li>
                             @endif
-                        </ul>
-                    </aside>
                 @endif
             </div>
 

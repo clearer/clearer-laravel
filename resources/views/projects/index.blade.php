@@ -36,9 +36,15 @@
         @endslot
 
         @slot('nav')
-            <a href="#">Latest Activity</a>
-            <a href="#">Alphabetical</a>
-            <a href="#">Archived</a>
+
+            @component('components.widget-filter', [
+                'filters' => $filters, 
+                'sort' => $sort, 
+                'reverse' => $reverse
+            ])
+            @endcomponent
+            
+            <!--<a href="#">Archived</a>-->
         @endslot
 
         @slot('content')

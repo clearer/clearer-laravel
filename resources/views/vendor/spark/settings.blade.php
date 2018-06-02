@@ -9,36 +9,44 @@
 @endsection
 
 @section('content')
-<div class="content cards flex-center">
-    <div class="card card--large">
-        <h2 class="mb-8">Settings</h2>
+
+<div class="content flex-center">
+
+    <div>
+
+    @component('components.widget')
+        @slot('title')
+            Profile
+        @endslot
+
+        @slot('content')
 
             @include('spark::settings.profile')
 
+        @endslot
+    @endcomponent
+
+    </div>
+
+    <div class="ml-8">
+
+        @component('components.widget')
+            @slot('title')
+                Teams
+            @endslot
+    
+            @slot('content')
+    
             @include('spark::settings.teams')
+    
+            @endslot
+        @endcomponent
+    
+        </div>
 
-            @if (Spark::canBillCustomers())
-                            @if (Spark::hasPaidPlans())
-                            <!-- Subscription -->
-                                <div role="tabcard" class="tab-pane" id="subscription">
-                                    <div v-if="user">
-                                        @include('spark::settings.subscription')
-                                    </div>
-                                </div>
-                            @endif
 
-                        <!-- Payment Method -->
-                            <div role="tabcard" class="tab-pane" id="payment-method">
-                                <div v-if="user">
-                                    @include('spark::settings.payment-method')
-                                </div>
-                            </div>
 
-                            <!-- Invoices -->
-                            <div role="tabcard" class="tab-pane" id="invoices">
-                                @include('spark::settings.invoices')
-                            </div>
-                        @endif
+</div>
 
 
         {{--
@@ -176,6 +184,4 @@
         </div>
     </spark-settings>
     --}}
-</div>
-</div>
 @endsection

@@ -1,6 +1,5 @@
 <spark-profile :user="user" inline-template>
-    <div class="container">
-        <h2 class="mb-8">My Profile</h2>
+    <div class="container" id="profile">
         <!-- Update Profile Photo -->
         @include('spark::settings.profile.update-profile-photo')
 

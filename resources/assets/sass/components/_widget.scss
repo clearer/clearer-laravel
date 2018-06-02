@@ -30,11 +30,21 @@
         padding: 0 1rem;
 
         a {
+            align-items: center;
             color: $white;
-            padding: 1rem;
+            display: flex;
+            padding: .5rem 1rem;
             transition: all .3s;
 
             &:hover {
+                background: rgba(255,255,255, .05);
+            }
+
+            .material-icons {
+                margin-left: -.5rem;
+            }
+
+            &.is-active {
                 background: rgba(255,255,255, .1);
             }
         }

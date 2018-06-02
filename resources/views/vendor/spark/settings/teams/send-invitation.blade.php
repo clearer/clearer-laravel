@@ -1,6 +1,5 @@
 <spark-send-invitation :user="user" :team="team" :billable-type="billableType" default-role="{{Spark::defaultRole()}}" inline-template>
     <div class="card card-default">
-        send
         <div class="card-header">{{__('Send Invitation')}}</div>
 
         <div class="card-body">

@@ -31,11 +31,13 @@
 }
 
 .flex-center {
+    display: flex;
     align-items: flex-start;
     justify-content: center;
 }
 
 .flex-justify {
+    display: flex;
     justify-content: center;
 }
 

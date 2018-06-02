@@ -25,24 +25,74 @@ class ProjectController extends Controller
 
     public function index(Request $request) 
     {
-
         $user = Auth::user();
         $team = $user->currentTeam();
-        
-        $projects = Project::where('team_id', $team->id)
-            ->get();
+
+        $sort = $request->query('sort');
+        $reverse = $request->query('reverse');
+
+        if(!$sort) {
+            $sort = 'updated_at';
+            $reverse = 'true';
+        }
+
+        $filters = [
+            (object)[
+                'slug' => 'updated_at',
+                'title' => 'Latest Activity'
+            ],
+            (object)[
+                'slug' => 'title',
+                'title' => 'Alphabetical'
+            ]
+        ];
+
+        $sortMethod = $reverse ? 'sortByDesc' : 'sortBy';
+
+        $projects = collect($team->projects)->$sortMethod($sort);
 
         $upcoming = Question::where('team_id', $team->id)
             ->where('due_date', '<', Carbon::now()->addWeeks(2))
             ->where('due_date', '>=', Carbon::now())
             ->get();
        
-        return view('projects.index', compact(['projects', 'upcoming', 'recent']));
+        return view('projects.index', compact(['projects', 'upcoming', 'recent', 'sort', 'reverse', 'filters']));
     }
 
-    public function show(Project $project) 
+    public function show(Request $request, Project $project) 
     {
-        return view('projects.show', ['project' => $project]);
+        $user = Auth::user();
+        $team = $user->currentTeam();
+
+        $sort = $request->query('sort');
+        $reverse = $request->query('reverse');
+
+        if(!$sort) {
+            $sort = 'updated_at';
+            $reverse = 'true';
+        }
+
+
+        $filters = [
+            (object)[
+                'slug' => 'updated_at',
+                'title' => 'Latest Activity'
+            ],
+            (object)[
+                'slug' => 'due_date',
+                'title' => 'Decision Due'
+            ],
+            (object)[
+                'slug' => 'title',
+                'title' => 'Alphabetical'
+            ]
+        ];
+
+        $sortMethod = $reverse ? 'sortByDesc' : 'sortBy';
+
+        $questions = collect($project->questions)->$sortMethod($sort);
+
+        return view('projects.show', compact('project', 'questions', 'sort', 'reverse', 'filters'));
     }
 
     public function edit(Project $project)

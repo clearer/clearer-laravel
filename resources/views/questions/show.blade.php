@@ -31,15 +31,14 @@
                         @include('idea.create')
                     @endslot
 
-
                 @endcomponent
 
             @endslot
 
             @slot('nav')
-                <a href="#">Most Likes</a>
+               <!-- <a href="#">Most Likes</a>
                 <a href="#">Post Date</a>
-                <a href="#">Acted On</a>
+                <a href="#">Acted On</a> -->
             @endslot
 
             @slot('content')
