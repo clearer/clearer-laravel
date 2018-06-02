@@ -57,9 +57,13 @@
 }
 
 .widget.muted {
+    border: 1px solid $grey-light;
+    
     .widget {
+
         &__header {
-            background: #aaa;
+            background: $muted;
+            color: $black;
             padding: .75rem 1.5rem;
         }
 

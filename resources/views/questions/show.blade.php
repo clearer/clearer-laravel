@@ -54,28 +54,35 @@
 
                             <div class="card">
 
-                        @component('components.modal', [ 'isOpen' => false ])
+                                    @component('components.modal', [ 'isOpen' => false ])
 
-                            @slot('button')
-                                <h4>{{ $idea->title }}</h4>
-                            @endslot
+                                        @slot('button')
+                                            <div class="card__body u-clickable"> 
+                                                <h4>{{ $idea->title }}</h4>
+                                            </div>
+                                        @endslot
 
-                            @slot('header')
-                                {{ $idea->title }}
-                            @endslot
+                                        @slot('header')
+                                            Idea Info
+                                        @endslot
 
-                            @slot('content')
-                                @include('idea.show')
-                            @endslot
-                            
-                        @endcomponent
+                                        @slot('content')
+                                            @include('idea.show')
+                                        @endslot
 
-                        <votes
-                            :votes="{{ $idea->votes }}"
-                            :idea-id="{{ $idea->id }}"
-                            :has-voted="{{ $idea->isVoted($idea->id) ? $idea->isVoted($idea->id)->id : 0 }}">
-                        </votes>
-                    </div>
+                                    @endcomponent
+
+                                <div class="card__footer">
+
+                                    <votes
+                                        :votes="{{ $idea->votes }}"
+                                        :idea-id="{{ $idea->id }}"
+                                        :has-voted="{{ $idea->isVoted($idea->id) ? $idea->isVoted($idea->id)->id : 0 }}">
+                                    </votes>
+
+                                </div>
+
+                            </div>
                         
                         @endforeach
                     </div>

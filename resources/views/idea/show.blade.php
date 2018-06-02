@@ -2,8 +2,12 @@
     
 <h1>{{ $idea->title }}</h1>
 
-<h5>Description</h5>
-{{ $idea->description }}
+@if($idea->description)
+    <h5 class="mt-8 mb-2">Description</h5>
+    {{ $idea->description }}
+@endif
+
+<div class="mt-8 mb-8">
 
 @component('components.widget', ['muted' => true])
     @slot('title')
@@ -11,7 +15,7 @@
     @endslot
 
     @slot('nav')
-        <a href="#">Most Recent</a>
+        <!--<a href="#">Most Recent</a>-->
     @endslot
 
     @slot('content')
@@ -19,7 +23,7 @@
             
             @if($idea->comments->isEmpty())
         
-                <p>No comments yet! Add one!</p>
+                <p class="py-4 px-6">No comments yet! Add one!</p>
         
             @else
 
@@ -44,6 +48,8 @@
         @endisset
     @endslot
 @endcomponent
+
+                    </div>
 
 
             
