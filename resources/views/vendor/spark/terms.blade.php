@@ -1,18 +1,12 @@
-@extends('spark::layouts.app')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <!-- Application Dashboard -->
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card card-default">
-                <div class="card-header">{{__('Terms Of Service')}}</div>
-
-                <div class="card-body terms-of-service">
-                    {!! $terms !!}
-                </div>
-            </div>
-        </div>
+<div class="cards flex-center">
+    <div class="card">
+        <div class="card__body">
+                <h5 class="mb-2">{{__('Terms Of Service')}}</h5>
+                {!! $terms !!}
+    </div>
     </div>
 </div>
 @endsection

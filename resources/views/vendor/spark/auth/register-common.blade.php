@@ -2,6 +2,8 @@
 
     <div class="card">
 
+        <div class="card__body">
+
         <!-- Coupon -->
         <div class="alert alert-success" v-if="coupon">
             <?php echo __('The coupon :value discount will be applied to your subscription!', ['value' => '{{ discount }}']); ?>
@@ -130,6 +132,8 @@
 
         <!-- Registration Form -->
          @include('spark::auth.register-common-form')
+
+    </div>
 
     </div>
 </div>
