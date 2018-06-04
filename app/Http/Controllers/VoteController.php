@@ -106,7 +106,7 @@ class VoteController extends Controller
         $vote = Vote::find($id);
 
         $teamID = $vote->idea->team->id;
-        $userID = $vote->idea->user->id;
+        $userID = $vote->user->id;
 
         Points::create([
             'team_id' => $teamID,
