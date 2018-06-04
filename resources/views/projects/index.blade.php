@@ -107,11 +107,13 @@
             Leaderboard
         @endslot
 
+        {{-- 
         @slot('nav')
             <a href="#">Month</a>
             <a href="#">Year</a>
             <a href="#">All-Time</a>
         @endslot
+        --}}
 
         @slot('content')
             <div class="list">
