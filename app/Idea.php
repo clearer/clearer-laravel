@@ -19,6 +19,7 @@ class Idea extends Model
         'description',
         'project_id',
         'question_id',
+        'acted_on',
         'team_id',
         'user_id'
     ];

@@ -7,6 +7,7 @@ $factory->define(App\Idea::class, function (Faker $faker) {
         'description' => $faker->realText(150),
         'title'       => $faker->realText(255),
         'user_id'     => $faker->numberBetween(1,100),
+        'acted_on'    => false,
         'project_id'  => $faker->numberBetween(1,100),
         'question_id' => $faker->numberBetween(1,100),
         'team_id'     => $faker->numberBetween(1,5)

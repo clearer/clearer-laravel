@@ -2,6 +2,10 @@
 
 @section('content')
 
+@if($question->isAnswered())
+<div class="alert alert--success">This question has been answered</div>
+@endif
+
 <div class="content">
 
     <div class="content--primary">
@@ -52,7 +56,7 @@
                     <div class="cards">
                         @foreach($question->ideas as $idea)
 
-                            <div class="card">
+                            <div class="card {{ $idea->acted_on ? 'card--green' : '' }}">
 
                                     
                                             <a href="{{ route('ideas.show', $idea->id) }}" class="card__body u-clickable"> 

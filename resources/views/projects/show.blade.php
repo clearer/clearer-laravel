@@ -54,7 +54,10 @@
 
                     <div class="list">
                         @foreach($questions as $question)
-                        <a class="list__item list__item--new" href="/questions/{{ $question->id }}">
+                        <a class="list__item" href="/questions/{{ $question->id }}">
+                            @if($question->isAnswered())
+                            <i class="material-icons">check</i>
+                            @endif
                             <h4>{{ $question->title }}</h4>
                             <div class="list__item-tools">
                                 <i class="material-icons">av_timer</i> {{ $question->due_date->diffForHumans() }}

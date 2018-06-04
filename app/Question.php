@@ -48,4 +48,13 @@ class Question extends Model
     {
         return $this->belongsTo('App\Team');
     }
+
+    public function isAnswered() {
+        $answered = array_filter($this->ideas->toArray(), function($idea) {
+            if( $idea['acted_on'] ) {
+                return true;
+            }
+        });
+        return sizeOf($answered);
+    }
 }

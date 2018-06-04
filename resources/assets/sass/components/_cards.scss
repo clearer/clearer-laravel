@@ -36,6 +36,15 @@
             border-top: 1px solid $muted;
             padding: .5rem 1rem;
         }
+
+        &--green {
+            background: lighten($primary, 35%);
+            border-color: $primary;
+
+            .card__footer {
+                border-color: $primary;
+            }
+        }
     }
 
 }

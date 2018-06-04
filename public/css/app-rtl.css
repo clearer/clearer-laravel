@@ -1126,6 +1126,15 @@ p + p {
   padding: .5rem 1rem;
 }
 
+.cards .card--green {
+  background: #d8f3f0;
+  border-color: #4fcabb;
+}
+
+.cards .card--green .card__footer {
+  border-color: #4fcabb;
+}
+
 .container {
   border: 1px solid #dddddd;
   padding: 1rem;

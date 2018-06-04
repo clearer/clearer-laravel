@@ -17,6 +17,7 @@ class CreateIdeasTable extends Migration
             $table->increments('id');
             $table->text('title');
             $table->text('description');
+            $table->boolean('acted_on');
             $table->integer('team_id');
             $table->integer('project_id');
             $table->integer('question_id');

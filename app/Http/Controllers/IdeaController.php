@@ -56,7 +56,8 @@ class IdeaController extends Controller
             $request->except(['_token']),
             [
                 'team_id' => $teamID,
-                'user_id' => $userID
+                'user_id' => $userID,
+                'acted_on' => false
             ]
         );
 
