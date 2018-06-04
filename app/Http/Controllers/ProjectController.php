@@ -56,7 +56,7 @@ class ProjectController extends Controller
             ->where('due_date', '>=', Carbon::now())
             ->get();
 
-        $teamUsers = collect($team->users)->sortBy('points($team->id)');
+        $teamUsers = collect($team->users)->sortByDesc('points($team->id)');
        
         return view('projects.index', compact(['projects', 'upcoming', 'teamUsers', 'recent', 'sort', 'reverse', 'filters']));
     }
