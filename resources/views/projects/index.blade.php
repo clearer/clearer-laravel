@@ -115,7 +115,7 @@
 
         @slot('content')
             <div class="list">
-                @foreach(Auth::user()->currentTeam->users as $user)
+                @foreach($teamUsers as $user)
                 <a class="list__item">
                         <img class="avatar--sm" src="{{ $user->photo_url }}" />
                         <h4>{{ $user->name }}</h4>
