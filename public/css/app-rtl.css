@@ -947,6 +947,10 @@ p + p {
   margin-top: 1rem;
 }
 
+.text--small {
+  font-size: .8rem;
+}
+
 .alert {
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -1112,6 +1116,8 @@ p + p {
 }
 
 .cards .card__body {
+  color: #222222;
+  display: block;
   padding: 1rem;
 }
 
@@ -1472,7 +1478,11 @@ table td {
 .widget.muted .widget__header {
   background: #dddddd;
   color: #222222;
-  padding: .75rem 1.5rem;
+  padding: .5rem 1rem;
+}
+
+.widget.muted .widget__header h2 {
+  font-size: 1rem;
 }
 
 .widget.muted .widget__nav a {
@@ -1514,6 +1524,9 @@ main {
 }
 
 .d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

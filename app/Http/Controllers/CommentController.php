@@ -42,20 +42,25 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Idea $idea)
+    public function store(Request $request)
     {
         //
-        $comment = new Comment();
-        $comment->title = request('title');
-        $comment->idea_id = $idea->id;
-        $comment->team_id = $idea->team_id;
-        $comment->question_id = $idea->question_id;
-        $comment->project_id = $idea->project_id;
-        $comment->user_id = Auth::user()->id;
-        $comment->comment_id = 0;
-        $comment->save();
 
-        return redirect()->route('idea.show', compact(['idea']));
+
+        $teamID = Auth::user()->currentTeam->id;
+        $userID = Auth::user()->id;
+
+        $req = array_merge(
+            $request->except(['_token']),
+            [
+                'team_id' => $teamID,
+                'user_id' => $userID
+            ]
+        );
+
+        Comment::create($req);
+        $request->session()->flash('message', "Comment added.");
+        return back();
     }
 
     /**

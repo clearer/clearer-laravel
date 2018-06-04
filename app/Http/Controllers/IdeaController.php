@@ -23,18 +23,18 @@ class IdeaController extends Controller
     //
     public function show(Idea $idea) 
     {
-        return view('idea.show', compact(['idea']));
+        return view('ideas.show', compact(['idea']));
     }
 
     public function create(Idea $idea)
     {
-        return view('idea.create', compact(['idea']));
+        return view('ideas.create', compact(['idea']));
     }
 
     public function edit(Idea $idea)
     {
         $this->authorize('edit', $idea);
-        return view('idea.edit', compact(['idea']));
+        return view('ideas.edit', compact(['idea']));
     }
 
     public function update(Idea $idea)

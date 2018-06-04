@@ -28,7 +28,7 @@
                     @endslot
 
                     @slot('content')
-                        @include('idea.create')
+                        @include('ideas.create')
                     @endslot
 
                 @endcomponent
@@ -54,31 +54,23 @@
 
                             <div class="card">
 
-                                    @component('components.modal', [ 'isOpen' => false ])
-
-                                        @slot('button')
-                                            <div class="card__body u-clickable"> 
+                                    
+                                            <a href="{{ route('ideas.show', $idea->id) }}" class="card__body u-clickable"> 
                                                 <h4>{{ $idea->title }}</h4>
-                                            </div>
-                                        @endslot
+                                            </a>
 
-                                        @slot('header')
-                                            Idea Info
-                                        @endslot
-
-                                        @slot('content')
-                                            @include('idea.show')
-                                        @endslot
-
-                                    @endcomponent
-
-                                <div class="card__footer">
+                                <div class="card__footer d-flex">
 
                                     <votes
                                         :votes="{{ $idea->votes }}"
                                         :idea-id="{{ $idea->id }}"
                                         :has-voted="{{ $idea->isVoted($idea->id) ? $idea->isVoted($idea->id)->id : 0 }}">
                                     </votes>
+
+                                    <div class="d-flex" style="margin-left: auto;">
+                                        <i class="material-icons" style="font-size: 1rem; margin-right: -.75rem; color: #aaa;">comments</i>
+                                        {{ $idea->comments->count() }}
+                                    </div>
 
                                 </div>
 
