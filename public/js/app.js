@@ -1978,6 +1978,76 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/MoveForward.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__("./node_modules/axios/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['ideaId', 'hasBeenActedOn'],
+    data: function data() {
+        return {
+            pending: false,
+            ideaStatus: this.hasBeenActedOn ? true : false
+        };
+    },
+
+    methods: {
+        toggleIdea: function toggleIdea() {
+            this.pending = true;
+
+            if (this.ideaStatus) {
+                console.log('move forward');
+                console.log(this.ideaId);
+                this.moveBackward();
+            } else {
+                console.log('move back');
+                this.moveForward();
+            }
+        },
+        moveForward: function moveForward() {
+            console.log('forward');
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/ideas/' + this.ideaId, {
+                acted_on: true
+            }).then(function (res) {
+                location.reload();
+            }).catch(function (err) {
+                console.log(err);
+            });
+        },
+        moveBackward: function moveBackward() {
+
+            console.log('back');
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/ideas/' + this.ideaId, {
+                acted_on: false
+            }).then(function (res) {
+                location.reload();
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+    }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/Votes.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -57327,7 +57397,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "a",
-    { staticClass: "d-flex", attrs: { href: "javascript:(void);" } },
+    { staticClass: "d-flex", attrs: { href: "javascript:void(0);" } },
     [
       !_vm.pending && !_vm.voteStatus
         ? _c(
@@ -57394,6 +57464,86 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-54bb06a2", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-7d89ab4d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/MoveForward.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "a",
+    { staticClass: "d-flex", attrs: { href: "javascript:void(0);" } },
+    [
+      !_vm.pending && !_vm.ideaStatus
+        ? _c(
+            "i",
+            {
+              staticClass: "material-icons",
+              staticStyle: { color: "gray", "font-size": "1.25rem" },
+              on: {
+                click: function($event) {
+                  _vm.toggleIdea()
+                }
+              }
+            },
+            [_vm._v("arrow_forward")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.pending && _vm.ideaStatus
+        ? _c(
+            "i",
+            {
+              staticClass: "material-icons",
+              staticStyle: { color: "green", "font-size": "1.25rem" },
+              on: {
+                click: function($event) {
+                  _vm.toggleIdea()
+                }
+              }
+            },
+            [_vm._v("arrow_forward")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.pending
+        ? _c(
+            "svg",
+            {
+              staticClass: "mr-2 a-spin icon",
+              attrs: {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "8",
+                height: "8",
+                viewBox: "0 0 8 8"
+              }
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M4 0c-2.2 0-4 1.8-4 4s1.8 4 4 4c1.1 0 2.12-.43 2.84-1.16l-.72-.72c-.54.54-1.29.88-2.13.88-1.66 0-3-1.34-3-3s1.34-3 3-3c.83 0 1.55.36 2.09.91l-1.09 1.09h3v-3l-1.19 1.19c-.72-.72-1.71-1.19-2.81-1.19z"
+                }
+              })
+            ]
+          )
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7d89ab4d", module.exports)
   }
 }
 
@@ -68438,6 +68588,7 @@ Vue.component('dropdown', __webpack_require__("./resources/assets/js/components/
 Vue.component('edit', __webpack_require__("./resources/assets/js/components/EditComponent.vue")); // may be redundant
 Vue.component('modal', __webpack_require__("./resources/assets/js/components/Modal.vue"));
 Vue.component('votes', __webpack_require__("./resources/assets/js/components/Votes.vue"));
+Vue.component('move-forward', __webpack_require__("./resources/assets/js/components/MoveForward.vue"));
 
 var app = new Vue({
   mixins: [__webpack_require__("./spark/resources/assets/js/spark.js")]
@@ -68578,6 +68729,54 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-6e8d36f4", Component.options)
   } else {
     hotAPI.reload("data-v-6e8d36f4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/MoveForward.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/MoveForward.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-7d89ab4d\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/MoveForward.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/MoveForward.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7d89ab4d", Component.options)
+  } else {
+    hotAPI.reload("data-v-7d89ab4d", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true

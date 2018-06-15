@@ -37,13 +37,13 @@ class IdeaController extends Controller
         return view('ideas.edit', compact(['idea']));
     }
 
-    public function update(Idea $idea)
+    public function update(Request $request, Idea $idea)
     {
-        $idea->title = request('title');
-        $idea->description = request('description');
+        $idea = Idea::find($idea->id);
+        $idea->acted_on = $request->acted_on;
         $idea->save();
-
-        return back();
+        
+        return response($idea->id, 200)->header('Content-Type', 'text/plain');
     }
 
     public function store(Request $request)

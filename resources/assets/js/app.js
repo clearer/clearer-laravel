@@ -22,7 +22,7 @@ Vue.component('dropdown', require('./components/Dropdown.vue'));
 Vue.component('edit', require('./components/EditComponent.vue')); // may be redundant
 Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('votes', require('./components/Votes.vue'));
-
+Vue.component('move-forward', require('./components/MoveForward.vue'));
 
 var app = new Vue({
     mixins: [require('spark')]

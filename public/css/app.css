@@ -955,7 +955,7 @@ p + p {
   border: 1px solid #dddddd;
   border-radius: 3px;
   display: block;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 1rem;
 }
 
@@ -1124,6 +1124,10 @@ p + p {
 .cards .card__footer {
   border-top: 1px solid #dddddd;
   padding: .5rem 1rem;
+}
+
+.cards .card__footer a {
+  color: #222222;
 }
 
 .cards .card--green {
@@ -1505,7 +1509,7 @@ body {
 }
 
 main {
-  padding: 3rem 2rem;
+  padding: 2rem;
 }
 
 .cards {

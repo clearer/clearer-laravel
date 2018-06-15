@@ -1,5 +1,5 @@
 <template>
-    <a class="d-flex" href="javascript:(void);">
+    <a class="d-flex" href="javascript:void(0);">
         <i v-on:click="toggleVote()" v-if="!pending && !voteStatus" class="material-icons" style="color: gray; font-size: 1.25rem;">star_border</i>
         <i v-on:click="toggleVote()" v-if="!pending && voteStatus" class="material-icons" style="color: orange; font-size: 1.25rem;">star</i>
         

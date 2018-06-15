@@ -35,6 +35,10 @@
         &__footer {
             border-top: 1px solid $muted;
             padding: .5rem 1rem;
+
+            a {
+                color: $black;
+            }
         }
 
         &--green {

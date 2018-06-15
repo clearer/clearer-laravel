@@ -35,7 +35,7 @@
                     @endslot
 
                     @slot('header')
-                        Create a New Idea
+                        Add an Idea
                     @endslot
 
                     @slot('content')
@@ -79,13 +79,16 @@
                                     </votes>
 
                                     <a href="/ideas/{{ $idea->id }}" class="d-flex ml-4">
-                                        <i class="material-icons" style="font-size: .9rem;  color: #aaa;">mode_comment</i>
+                                        <i class="material-icons" style="font-size: .9rem;  color: #aaa; margin-right: .25rem">mode_comment</i>
                                         {{ $idea->comments->count() }}
                                     </a>
-
-                                    <div class="d-flex" style="margin-left: auto;">
-                                        <i class="material-icons">arrow_forward</i>
-                                    </div>
+                                    
+                                    <move-forward
+                                        class="d-flex"
+                                        style="margin-left: auto;"
+                                        :idea-id="{{ $idea->id }}"
+                                        :has-been-acted-on="{{ $idea->acted_on }}">
+                                    </move-forward>
 
                                 </div>
 
