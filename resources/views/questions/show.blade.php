@@ -82,6 +82,8 @@
                                         <i class="material-icons" style="font-size: .9rem;  color: #aaa; margin-right: .25rem">mode_comment</i>
                                         {{ $idea->comments->count() }}
                                     </a>
+
+                                    @if(Auth::user()->id == $question->user->id)
                                     
                                     <move-forward
                                         class="d-flex"
@@ -89,6 +91,8 @@
                                         :idea-id="{{ $idea->id }}"
                                         :has-been-acted-on="{{ $idea->acted_on }}">
                                     </move-forward>
+
+                                    @endif
 
                                 </div>
 
