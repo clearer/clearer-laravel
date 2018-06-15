@@ -5,17 +5,16 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+class WelcomeTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Root should redirect to Project dashboard
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testRedirectToProjects()
     {
         $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $response->assertRedirect('/projects');
     }
 }

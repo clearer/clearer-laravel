@@ -3,8 +3,15 @@
 @section('content')
 
 @if($question->isAnswered())
-<div class="alert alert--success">This question has been answered</div>
+    <div class="alert alert--success">This question has been answered</div>
 @endif
+
+<a class="button button--inline button--dark button--small mb-4" href="/projects/{{ $question->project->id }}">
+    <div class="d-flex">
+        <i class="material-icons">arrow_back_ios</i>
+        Questions
+    </div>
+</a>
 
 <div class="content">
 
@@ -54,14 +61,14 @@
                 @else
 
                     <div class="cards">
+
                         @foreach($question->ideas as $idea)
 
                             <div class="card {{ $idea->acted_on ? 'card--green' : '' }}">
-
-                                    
-                                            <a href="{{ route('ideas.show', $idea->id) }}" class="card__body u-clickable"> 
-                                                <h4>{{ $idea->title }}</h4>
-                                            </a>
+   
+                                <a href="{{ route('ideas.show', $idea->id) }}" class="card__body u-clickable"> 
+                                    <h4>{{ $idea->title }}</h4>
+                                </a>
 
                                 <div class="card__footer d-flex">
 
@@ -71,9 +78,13 @@
                                         :has-voted="{{ $idea->isVoted($idea->id) ? $idea->isVoted($idea->id)->id : 0 }}">
                                     </votes>
 
-                                    <div class="d-flex" style="margin-left: auto;">
-                                        <i class="material-icons" style="font-size: 1rem; margin-right: -.75rem; color: #aaa;">comments</i>
+                                    <a href="/ideas/{{ $idea->id }}" class="d-flex ml-4">
+                                        <i class="material-icons" style="font-size: .9rem;  color: #aaa;">mode_comment</i>
                                         {{ $idea->comments->count() }}
+                                    </a>
+
+                                    <div class="d-flex" style="margin-left: auto;">
+                                        <i class="material-icons">arrow_forward</i>
                                     </div>
 
                                 </div>
@@ -81,6 +92,7 @@
                             </div>
                         
                         @endforeach
+
                     </div>
 
                 @endif
@@ -96,13 +108,13 @@
         @component('components.widget')
 
             @slot('title')
-                Project Info
+                Question Info
             @endslot
 
             @slot('content')
                 <div class="p-8">
 
-                    <h1>{{ $question->title }}</h1>
+                    <h2>{{ $question->title }}</h2>
 
                     <h5 class="mt-8 mb-4">Asked By</h5>
                     <div class="flex-align">
@@ -111,13 +123,13 @@
                     </div>
 
                     <h5 class="mt-8 mb-4">Decision Due</h5>
-                    <p>{{ date('m d, Y', strtotime($question->due_date)) }}</p>
+                    <p>{{ date('M j, Y', strtotime($question->due_date)) }}</p>
 
                     <h5 class="mt-8 mb-4">In Project</h5>
-                    {{ $question->project->title }}
+                    <p>{{ $question->project->title }}</p>
 
                     <h5 class="mt-8 mb-4">Description</h5>
-                    {{ $question->description }}
+                    <p>{{ $question->description }}</p>
 
                 </div>
             @endslot

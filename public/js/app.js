@@ -1997,7 +1997,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -57326,61 +57325,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "d-flex" }, [
-    !_vm.pending
-      ? _c(
-          "svg",
-          {
-            staticClass: "icon mr-2 u-clickable",
-            class: { active: _vm.voteStatus },
-            attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              width: "8",
-              height: "8",
-              viewBox: "0 0 8 8"
+  return _c(
+    "a",
+    { staticClass: "d-flex", attrs: { href: "javascript:(void);" } },
+    [
+      !_vm.pending && !_vm.voteStatus
+        ? _c(
+            "i",
+            {
+              staticClass: "material-icons",
+              staticStyle: { color: "gray", "font-size": "1.25rem" },
+              on: {
+                click: function($event) {
+                  _vm.toggleVote()
+                }
+              }
             },
-            on: {
-              click: function($event) {
-                _vm.toggleVote()
+            [_vm._v("star_border")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.pending && _vm.voteStatus
+        ? _c(
+            "i",
+            {
+              staticClass: "material-icons",
+              staticStyle: { color: "orange", "font-size": "1.25rem" },
+              on: {
+                click: function($event) {
+                  _vm.toggleVote()
+                }
               }
-            }
-          },
-          [
-            _c("path", {
+            },
+            [_vm._v("star")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.pending
+        ? _c(
+            "svg",
+            {
+              staticClass: "mr-2 a-spin icon",
               attrs: {
-                d:
-                  "M2 0c-.55 0-1.04.23-1.41.59-.36.36-.59.85-.59 1.41 0 .55.23 1.04.59 1.41l3.41 3.41 3.41-3.41c.36-.36.59-.85.59-1.41 0-.55-.23-1.04-.59-1.41-.36-.36-.85-.59-1.41-.59-.55 0-1.04.23-1.41.59-.36.36-.59.85-.59 1.41 0-.55-.23-1.04-.59-1.41-.36-.36-.85-.59-1.41-.59z",
-                transform: "translate(0 1)"
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "8",
+                height: "8",
+                viewBox: "0 0 8 8"
               }
-            })
-          ]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.pending
-      ? _c(
-          "svg",
-          {
-            staticClass: "mr-2 a-spin icon",
-            attrs: {
-              xmlns: "http://www.w3.org/2000/svg",
-              width: "8",
-              height: "8",
-              viewBox: "0 0 8 8"
-            }
-          },
-          [
-            _c("path", {
-              attrs: {
-                d:
-                  "M4 0c-2.2 0-4 1.8-4 4s1.8 4 4 4c1.1 0 2.12-.43 2.84-1.16l-.72-.72c-.54.54-1.29.88-2.13.88-1.66 0-3-1.34-3-3s1.34-3 3-3c.83 0 1.55.36 2.09.91l-1.09 1.09h3v-3l-1.19 1.19c-.72-.72-1.71-1.19-2.81-1.19z"
-              }
-            })
-          ]
-        )
-      : _vm._e(),
-    _vm._v("\n        " + _vm._s(_vm.voteCount) + "\n    ")
-  ])
+            },
+            [
+              _c("path", {
+                attrs: {
+                  d:
+                    "M4 0c-2.2 0-4 1.8-4 4s1.8 4 4 4c1.1 0 2.12-.43 2.84-1.16l-.72-.72c-.54.54-1.29.88-2.13.88-1.66 0-3-1.34-3-3s1.34-3 3-3c.83 0 1.55.36 2.09.91l-1.09 1.09h3v-3l-1.19 1.19c-.72-.72-1.71-1.19-2.81-1.19z"
+                }
+              })
+            ]
+          )
+        : _vm._e(),
+      _vm._v("\n    " + _vm._s(_vm.voteCount) + "\n")
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
